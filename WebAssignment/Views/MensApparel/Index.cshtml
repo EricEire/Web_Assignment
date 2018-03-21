@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<WebAssignment.Models.SaleItem>
 @{
     ViewBag.Title = "Index";
 }
@@ -46,106 +46,120 @@
                             <div class="carousel-inner">
                                 <div class="active item">
                                     <ul class="thumbnails">
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <span class="sale_tag"></span>
-                                                <p><a href="product_detail.html"><img src="~/Images/Apparel/Beanie_Black_1.jpg" alt="Black Beanie" /></a></p>
-                                                <a href="product_detail.html" class="title">Black Beanie</a><br />
-                                                <a href="products.html" class="category">TEXT</a>
-                                                <p class="price">10.00</p>
-                                            </div>
-                                        </li>
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <span class="sale_tag"></span>
-                                                <p><a href="product_detail.html"><img src="~/Images/Apparel/Beanie_Black_2.jpg" alt="Black Beanie" /></a></p>
-                                                <a href="product_detail.html" class="title">Black Beanie</a><br />
-                                                <a href="products.html" class="category">TEXT</a>
-                                                <p class="price">10.00</p>
-                                            </div>
-                                        </li>
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <p><a href="product_detail.html"><img src="~/Images/Apparel/Beanie_Grey_1.jpg" alt="Grey Beanie" /></a></p>
-                                                <a href="product_detail.html" class="title">Grey Beanie</a><br />
-                                                <a href="products.html" class="category">TEXT</a>
-                                                <p class="price">10.00</p>
-                                            </div>
-                                        </li>
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <p><a href="product_detail.html"><img src="~/Images/Apparel/Beanie_Yellow_1.jpg" alt="Yellow Beanie" /></a></p>
-                                                <a href="product_detail.html" class="title">Yellow Beanie</a><br />
-                                                <a href="products.html" class="category">TEXT</a>
-                                                <p class="price">12.00</p>
-                                            </div>
-                                        </li>
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <span class="sale_tag"></span>
-                                                <p><a href="product_detail.html"><img src="~/Images/Apparel/Belt_Black_1.jpg" alt="Black Belt" /></a></p>
-                                                <a href="product_detail.html" class="title">Black Belt</a><br />
-                                                <a href="products.html" class="category">Premium Leather</a>
-                                                <p class="price">27.00</p>
-                                            </div>
-                                        </li>
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <span class="sale_tag"></span>
-                                                <p><a href="product_detail.html"><img src="~/Images/Apparel/Belt_Brown_1.jpg" alt="Brown Belt" /></a></p>
-                                                <a href="product_detail.html" class="title">Brown Belt</a><br />
-                                                <a href="products.html" class="category">Premium Leather</a>
-                                                <p class="price">27.00</p>
-                                            </div>
-                                        </li>
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <p><a href="product_detail.html"><img src="~/Images/Apparel/Belt_Black_2.jpg" alt="Black Belt" /></a></p>
-                                                <a href="product_detail.html" class="title">Black Belt</a><br />
-                                                <a href="products.html" class="category">Premium Leather</a>
-                                                <p class="price">27.00</p>
-                                            </div>
-                                        </li>
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <p><a href="product_detail.html"><img src="~/Images/Apparel/Belt_Brown_2.jpg" alt="Brown Belt" /></a></p>
-                                                <a href="product_detail.html" class="title">Brown Belt</a><br />
-                                                <a href="products.html" class="category">TEXT</a>
-                                                <p class="price">27.00</p>
-                                            </div>
-                                        </li>
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <p><a href="product_detail.html"><img src="~/Images/Apparel/Tie_Black.jpg" alt="Black tie" /></a></p>
-                                                <a href="product_detail.html" class="title">Black Tie</a><br />
-                                                <a href="products.html" class="category">TEXT</a>
-                                                <p class="price">24.00</p>
-                                            </div>
-                                        </li>
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <p><a href="product_detail.html"><img src="~/Images/Apparel/Tie_Blue.jpg" alt="Blue tie" /></a></p>
-                                                <a href="product_detail.html" class="title">Blue Tie</a><br />
-                                                <a href="products.html" class="category">TEXT</a>
-                                                <p class="price">24.00</p>
-                                            </div>
-                                        </li>
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <p><a href="product_detail.html"><img src="~/Images/Apparel/Tie_Burgandy.jpg" alt="Blue tie" /></a></p>
-                                                <a href="product_detail.html" class="title">Burgandy Tie</a><br />
-                                                <a href="products.html" class="category">TEXT</a>
-                                                <p class="price">24.00</p>
-                                            </div>
-                                        </li>
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <p><a href="product_detail.html"><img src="~/Images/Apparel/Tie_Silver.jpg" alt="Silver tie" /></a></p>
-                                                <a href="product_detail.html" class="title">Silver Tie</a><br />
-                                                <a href="products.html" class="category">TEXT</a>
-                                                <p class="price">24.00</p>
-                                            </div>
-                                        </li>
+                                        @*Foreach loop to iterate through list passed by controller to view and display the first 12 SaleItem Objects passed*@
+                                        @foreach (var saleitem in Model)
+                                        {
+                                         if(Model.)
+                                            <li class="span3">
+                                              <div class="product-box">
+                                              <span class="sale_tag"></span>
+                                                    <p><a href="product_detail.html"><img src="~/Images/Apparel/@saleitem.Image" alt="Black Beanie" /></a></p>
+                                                    <a href="product_detail.html" class="title">@saleitem.Title </a><br />
+                                                    <a href="products.html" class="category">@saleitem.Description</a>
+                                                    <p class="price">@saleitem.Price</p>
+                                                </div>
+                                            </li>
+                                        }
+                                        @*<li class="span3">
+            <div class="product-box">
+                <span class="sale_tag"></span>
+                <p><a href="product_detail.html"><img src="~/Images/Apparel/Beanie_Black_1.jpg" alt="Black Beanie" /></a></p>
+                <a href="product_detail.html" class="title">Black Beanie</a><br />
+                <a href="products.html" class="category">TEXT</a>
+                <p class="price">10.00</p>
+            </div>
+        </li>
+        <li class="span3">
+            <div class="product-box">
+                <span class="sale_tag"></span>
+                <p><a href="product_detail.html"><img src="~/Images/Apparel/Beanie_Black_2.jpg" alt="Black Beanie" /></a></p>
+                <a href="product_detail.html" class="title">Black Beanie</a><br />
+                <a href="products.html" class="category">TEXT</a>
+                <p class="price">10.00</p>
+            </div>
+        </li>
+        <li class="span3">
+            <div class="product-box">
+                <p><a href="product_detail.html"><img src="~/Images/Apparel/Beanie_Grey_1.jpg" alt="Grey Beanie" /></a></p>
+                <a href="product_detail.html" class="title">Grey Beanie</a><br />
+                <a href="products.html" class="category">TEXT</a>
+                <p class="price">10.00</p>
+            </div>
+        </li>
+        <li class="span3">
+            <div class="product-box">
+                <p><a href="product_detail.html"><img src="~/Images/Apparel/Beanie_Yellow_1.jpg" alt="Yellow Beanie" /></a></p>
+                <a href="product_detail.html" class="title">Yellow Beanie</a><br />
+                <a href="products.html" class="category">TEXT</a>
+                <p class="price">12.00</p>
+            </div>
+        </li>
+        <li class="span3">
+            <div class="product-box">
+                <span class="sale_tag"></span>
+                <p><a href="product_detail.html"><img src="~/Images/Apparel/Belt_Black_1.jpg" alt="Black Belt" /></a></p>
+                <a href="product_detail.html" class="title">Black Belt</a><br />
+                <a href="products.html" class="category">Premium Leather</a>
+                <p class="price">27.00</p>
+            </div>
+        </li>
+        <li class="span3">
+            <div class="product-box">
+                <span class="sale_tag"></span>
+                <p><a href="product_detail.html"><img src="~/Images/Apparel/Belt_Brown_1.jpg" alt="Brown Belt" /></a></p>
+                <a href="product_detail.html" class="title">Brown Belt</a><br />
+                <a href="products.html" class="category">Premium Leather</a>
+                <p class="price">27.00</p>
+            </div>
+        </li>
+        <li class="span3">
+            <div class="product-box">
+                <p><a href="product_detail.html"><img src="~/Images/Apparel/Belt_Black_2.jpg" alt="Black Belt" /></a></p>
+                <a href="product_detail.html" class="title">Black Belt</a><br />
+                <a href="products.html" class="category">Premium Leather</a>
+                <p class="price">27.00</p>
+            </div>
+        </li>
+        <li class="span3">
+            <div class="product-box">
+                <p><a href="product_detail.html"><img src="~/Images/Apparel/Belt_Brown_2.jpg" alt="Brown Belt" /></a></p>
+                <a href="product_detail.html" class="title">Brown Belt</a><br />
+                <a href="products.html" class="category">TEXT</a>
+                <p class="price">27.00</p>
+            </div>
+        </li>
+        <li class="span3">
+            <div class="product-box">
+                <p><a href="product_detail.html"><img src="~/Images/Apparel/Tie_Black.jpg" alt="Black tie" /></a></p>
+                <a href="product_detail.html" class="title">Black Tie</a><br />
+                <a href="products.html" class="category">TEXT</a>
+                <p class="price">24.00</p>
+            </div>
+        </li>
+        <li class="span3">
+            <div class="product-box">
+                <p><a href="product_detail.html"><img src="~/Images/Apparel/Tie_Blue.jpg" alt="Blue tie" /></a></p>
+                <a href="product_detail.html" class="title">Blue Tie</a><br />
+                <a href="products.html" class="category">TEXT</a>
+                <p class="price">24.00</p>
+            </div>
+        </li>
+        <li class="span3">
+            <div class="product-box">
+                <p><a href="product_detail.html"><img src="~/Images/Apparel/Tie_Burgandy.jpg" alt="Blue tie" /></a></p>
+                <a href="product_detail.html" class="title">Burgandy Tie</a><br />
+                <a href="products.html" class="category">TEXT</a>
+                <p class="price">24.00</p>
+            </div>
+        </li>
+        <li class="span3">
+            <div class="product-box">
+                <p><a href="product_detail.html"><img src="~/Images/Apparel/Tie_Silver.jpg" alt="Silver tie" /></a></p>
+                <a href="product_detail.html" class="title">Silver Tie</a><br />
+                <a href="products.html" class="category">TEXT</a>
+                <p class="price">24.00</p>
+            </div>
+        </li>*@
                                     </ul>
                                 </div>
                                 <div class="item">

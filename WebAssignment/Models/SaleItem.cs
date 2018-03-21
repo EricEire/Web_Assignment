@@ -14,13 +14,13 @@ namespace WebAssignment.Models
         public ItemType Type { get; set; }
 
         public SaleItem() { }
-        public SaleItem(string title, decimal price, string description, string itemimage, ItemType itemtype)
+        public SaleItem(string title, decimal price, string description, string itemimage, ItemType type)
         {
             Title = title;
             Price = price;
             Description = description;
             Image = itemimage;
-            Type = itemtype;
+            Type = type;
         }
     }
 }
