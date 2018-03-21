@@ -10,17 +10,17 @@ namespace WebAssignment.Models
         public string Title { get; set; }
         public decimal Price { get; set; }
         public string Description { get; set; }
-        public string ItemImage { get; set; }
-        public string ItemType { get; set; }
+        public string Image { get; set; }
+        public ItemType Type { get; set; }
 
         public SaleItem() { }
-        public SaleItem(string title, decimal price, string description, string itemimage, string itemtype)
+        public SaleItem(string title, decimal price, string description, string itemimage, ItemType itemtype)
         {
             Title = title;
             Price = price;
             Description = description;
-            ItemImage = itemimage;
-            ItemType = itemtype;
+            Image = itemimage;
+            Type = itemtype;
         }
     }
 }
