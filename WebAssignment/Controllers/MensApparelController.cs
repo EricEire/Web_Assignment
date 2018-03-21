@@ -27,8 +27,20 @@ namespace WebAssignment.Controllers
             Apparellist.Add(new SaleItem("Burgundy Tie", 24m, "I'm Tie Burgundy", "Tie_Burgandy.jpg", ItemType.Apparel));
             Apparellist.Add(new SaleItem("Silver Tie", 24m, "Silver Tie", "Tie_Silver.jpg", ItemType.Apparel));
             //Code for adding new item
-            //Apparellist.Add(new SaleItem("", m, "", "", ItemType.Apparel));
-            
+            //Second Page Items
+            Apparellist.Add(new SaleItem("Black Cap", 15m, "Text", "Cap_Black_1.jpg", ItemType.Apparel));
+            Apparellist.Add(new SaleItem("Black Cap", 15m, "Text", "Cap_Black_2.jpg", ItemType.Apparel));
+            Apparellist.Add(new SaleItem("Grey Cap", 15m, "TEXT", "Cap_Grey_1.jpg", ItemType.Apparel));
+            Apparellist.Add(new SaleItem("Black Cap", 15m, "TEXT", "Cap_Suede_1.jpg", ItemType.Apparel));
+            Apparellist.Add(new SaleItem("Black Belt", 25m, "TEXT", "Belt_Black_3.jpg", ItemType.Apparel));
+            Apparellist.Add(new SaleItem("Brown Belt", 25m, "TEXT", "Belt_Brown_3.jpg", ItemType.Apparel));
+            Apparellist.Add(new SaleItem("Black Belt", 25m, "TEXT", "Belt_Black_4.jpg", ItemType.Apparel));
+            Apparellist.Add(new SaleItem("Brown Belt", 25m, "TEXT", "Belt_Brown_4.jpg", ItemType.Apparel));
+            Apparellist.Add(new SaleItem("Check Tie", 20m, "TEXT", "Tie_Check.jpg", ItemType.Apparel));
+            Apparellist.Add(new SaleItem("Floral Tie", 20m, "TEXT", "Tie_Floral.jpg", ItemType.Apparel));
+            Apparellist.Add(new SaleItem("Pink Tie", 20m, "TEXT", "Tie_Pink.jpg", ItemType.Apparel));
+            Apparellist.Add(new SaleItem("Green Velvet Tie", 27m, "Luxiourious Velvet", "Tie_Green_Velvet.jpg", ItemType.Apparel));
+
             return View(Apparellist);
         }
     }
