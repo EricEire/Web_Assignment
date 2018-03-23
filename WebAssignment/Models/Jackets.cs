@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace WebAssignment.Models
 {
@@ -11,13 +13,13 @@ namespace WebAssignment.Models
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }
         public decimal ProductPricePerUnit { get; set; }
-        public string ProductQuantity { get; set; }
+        public int ProductQuantity { get; set; }
         public string ProductSize { get; set; }
         public string ProductColour { get; set; }
 
         public Jackets() { }
 
-        public Jackets(string productId, string productName, string productDescription, decimal productPricePerUnit, string productQuantity,
+        public Jackets(string productId, string productName, string productDescription, decimal productPricePerUnit, int productQuantity,
            string productSize, string productColour)
         {
             ProductId = productId;
@@ -28,5 +30,13 @@ namespace WebAssignment.Models
             ProductSize = productSize;
             ProductColour = productColour;
         }
+
+        //ES 
+        //public AddJacket()
+        //{
+        //    SqlCommand cmd = new SqlCommand();
+        //    cmd = Sql
+        //}
+
     }
 }
