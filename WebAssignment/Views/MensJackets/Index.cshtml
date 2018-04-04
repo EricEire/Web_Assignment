@@ -49,26 +49,28 @@
                                         <!--Attempt to add an image from the database -->
                                         </>
                                         @foreach (var jacket in Model)
-                                        {
-                                            <li class="span3">
-                                                <div class="product-box">
-                                                    <span class="sale_tag"></span>
-                                                    <p><a href="product_detail.html"><img alt="@jacket.JacketImage" src="data:image;base64,@System.Convert.ToBase64String(jacket.JacketImage)"@*"~/Images/Jackets/Leather_Black_Biker_1.jpg"*@ /></a></p>
-                                                    <a href="product_detail.html" class="title">@jacket.ProductName</a><br />
-                                                    <a href="products.html" class="category">@jacket.ProductDescription</a>
-                                                    <p class="price">@jacket.ProductPricePerUnit</p>
-                                                </div>
-                                            </li>
-                                        }
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <span class="sale_tag"></span>
-                                                <p><a href="product_detail.html"><img src="~/Images/Jackets/Leather_Black_Biker_2.jpg" alt="Black Leather Biker Jacket" /></a></p>
-                                                <a href="product_detail.html" class="title">Black Leather Biker Jacket</a><br />
-                                                <a href="products.html" class="category">Real, premium leather</a>
-                                                <p class="price">200.00</p>
-                                            </div>
-                                        </li>
+    {
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <span class="sale_tag"></span>
+                                            <p><a href="product_detail.html"><img alt="@jacket.JacketImage" src="data:image;base64,@System.Convert.ToBase64String(jacket.JacketImage)" /></a></p>
+                                            <a href="product_detail.html" class="title">@jacket.ProductName</a><br />
+                                            <a href="products.html" class="category">@jacket.ProductDescription</a>
+                                            <p class="price">@jacket.ProductPricePerUnit</p>
+                                        </div>
+                                    </li>
+}
+                                        @*
+        <li class="span3">
+            <div class="product-box">
+                <span class="sale_tag"></span>
+                <p><a href="product_detail.html"><img src="~/Images/Jackets/Leather_Black_Biker_2.jpg" alt="Black Leather Biker Jacket" /></a></p>
+                <a href="product_detail.html" class="title">Black Leather Biker Jacket</a><br />
+                <a href="products.html" class="category">Real, premium leather</a>
+                <p class="price">200.00</p>
+            </div>
+        </li>
+                                        *@
                                         <li class="span3">
                                             <div class="product-box">
                                                 <p><a href="product_detail.html"><img src="~/Images/Jackets/Leather_Black_Racer_1.jpg" alt="Black Leather Racer Jacket" /></a></p>

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebAssignment.Models.SaleItem>
+﻿@model IEnumerable<WebAssignment.Models.Apparel>
 @{
     ViewBag.Title = "Index";
 }
@@ -52,10 +52,10 @@
                                          <li class="span3">
                                               <div class="product-box">
                                               <span class="sale_tag"></span>
-                                                    <p><a href="product_detail.html"><img src="~/Images/Apparel/@saleitem.Image" alt="Black Beanie" /></a></p>
-                                                    <a href="product_detail.html" class="title">@saleitem.Title </a><br />
-                                                    <a href="products.html" class="category">@saleitem.Description</a>
-                                                    <p class="price">@saleitem.Price</p>
+                                                    <p><a href="product_detail.html"><img src="data:image;base64,@System.Convert.ToBase64String(saleitem.ApparelImage)" alt="Black Beanie" /></a></p>
+                                                    <a href="product_detail.html" class="title">@saleitem.ProductName</a><br />
+                                                    <a href="products.html" class="category">@saleitem.ProductDescription</a>
+                                                    <p class="price">@saleitem.ProductPricePerUnit</p>
                                                 </div>
                                             </li>
                                         }
@@ -170,10 +170,10 @@
                                     <li class="span3">
                                         <div class="product-box">
                                             <span class="sale_tag"></span>
-                                            <p><a href="product_detail.html"><img src="~/Images/Apparel/@saleitem.Image" alt="Black Beanie" /></a></p>
-                                            <a href="product_detail.html" class="title">@saleitem.Title </a><br />
-                                            <a href="products.html" class="category">@saleitem.Description</a>
-                                            <p class="price">@saleitem.Price</p>
+                                            <p><a href="product_detail.html"><img src="data:image;base64,@System.Convert.ToBase64String(saleitem.ApparelImage)" alt="Black Beanie" /></a></p>
+                                                    <a href="product_detail.html" class="title">@saleitem.ProductName</a><br />
+                                                    <a href="products.html" class="category">@saleitem.ProductDescription</a>
+                                                    <p class="price">@saleitem.ProductPricePerUnit</p>
                                         </div>
                                     </li>
 }

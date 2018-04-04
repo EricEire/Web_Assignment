@@ -13,7 +13,7 @@ namespace WebAssignment.Controllers
         public ActionResult Index()
         {
             //Generic list passed to apparel page to test display of every item. List so that each page can be passed from backend list of items which are available and can be modfied.
-            List<SaleItem> Apparellist = new List<SaleItem>();
+            /*List<SaleItem> Apparellist = new List<SaleItem>();
             Apparellist.Add(new SaleItem("Black Beanie", 10m, "Lovely Black Beanie", "Beanie_Black_1.jpg", ItemType.Apparel));
             Apparellist.Add(new SaleItem("Black Beanie",10m, "Aren't they all lovely Beanies", "Beanie_Black_2.jpg", ItemType.Apparel));
             Apparellist.Add(new SaleItem("Grey Beanie", 10m, "Just like the Black Beanie, but grey", "Beanie_Grey_1.jpg", ItemType.Apparel));
@@ -39,8 +39,9 @@ namespace WebAssignment.Controllers
             Apparellist.Add(new SaleItem("Check Tie", 20m, "TEXT", "Tie_Check.jpg", ItemType.Apparel));
             Apparellist.Add(new SaleItem("Floral Tie", 20m, "TEXT", "Tie_Floral.jpg", ItemType.Apparel));
             Apparellist.Add(new SaleItem("Pink Tie", 20m, "TEXT", "Tie_Pink.jpg", ItemType.Apparel));
-            Apparellist.Add(new SaleItem("Green Velvet Tie", 27m, "Luxiourious Velvet", "Tie_Green_Velvet.jpg", ItemType.Apparel));
-
+            Apparellist.Add(new SaleItem("Green Velvet Tie", 27m, "Luxiourious Velvet", "Tie_Green_Velvet.jpg", ItemType.Apparel));*/
+            DAO dao = new DAO();
+            List<Apparel> Apparellist = dao.showApparel();
             return View(Apparellist);
         }
     }

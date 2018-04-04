@@ -18,7 +18,6 @@ namespace WebAssignment.Models
         {
             conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["conString"].ConnectionString);
         }
-
         public List<Jackets> showJackets()
         {
             List<Jackets> jacketList = new List<Jackets>();
@@ -57,6 +56,46 @@ namespace WebAssignment.Models
             }
 
             return jacketList;
+        }
+
+        public List<Apparel> showApparel()
+        {
+            List<Apparel> apparellist = new List<Apparel>();
+            Connection();
+            SqlDataReader reader;
+            //Creating an instance of SqlCommand 
+            SqlCommand cmd;
+            //Intialising SqlCommand
+            cmd = new SqlCommand("uspShowAllApparel", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Apparel apparel = new Apparel();
+                    apparel.ProductId = reader["ApparelID"].ToString();
+                    apparel.ProductName = reader["ApparelName"].ToString();
+                    apparel.ProductDescription = reader["ApparelDescription"].ToString();
+                    apparel.ProductPricePerUnit = decimal.Parse(reader["ApparelPricePerUnit"].ToString());
+                    apparel.ProductQuantity = int.Parse(reader["ApparelQuantity"].ToString());
+                    apparel.ProductSize = reader["ApparelSize"].ToString();
+                    apparel.ProductColour = reader["ApparelColour"].ToString();
+                    apparel.ApparelImage = (byte[])reader["ApparelImage"];
+                    apparellist.Add(apparel);
+                }
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return apparellist;
         }
 
     }
