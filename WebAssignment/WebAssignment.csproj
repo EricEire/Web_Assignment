@@ -91,6 +91,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ClothesDatabase.mdf" />
+    <Content Include="App_Data\ClothesDatabase_log.ldf">
+      <DependentUpon>ClothesDatabase.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -402,7 +406,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="shopper\themes\js\images\" />
     <Folder Include="shopper\themes\js\js\" />
   </ItemGroup>
