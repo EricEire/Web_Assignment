@@ -27,7 +27,7 @@ namespace WebAssignment.Models
             //Creating an instance of SqlCommand 
             SqlCommand cmd;
             //Intialising SqlCommand
-            cmd = new SqlCommand("uspAllJackets", conn);
+            cmd = new SqlCommand("uspShowAllJackets", conn);
             cmd.CommandType = CommandType.StoredProcedure;
             try
             {
@@ -43,7 +43,7 @@ namespace WebAssignment.Models
                     jacket.ProductQuantity = int.Parse(reader["JacketQuantity"].ToString());
                     jacket.ProductSize = reader["JacketSize"].ToString();
                     jacket.ProductColour = reader["JacketColour"].ToString();
-                    jacket.JacketImage = reader["JacketImage"].ToString();
+                    jacket.JacketImage = (byte[])reader["JacketImage"];
                     jacketList.Add(jacket);
                 }
             }

@@ -16,12 +16,12 @@ namespace WebAssignment.Models
         public int ProductQuantity { get; set; }
         public string ProductSize { get; set; }
         public string ProductColour { get; set; }
-        public string JacketImage { get; set; }
+        public byte[] JacketImage { get; set; }
 
         public Jackets() { }
 
         public Jackets(string productId, string productName, string productDescription, decimal productPricePerUnit, int productQuantity,
-           string productSize, string productColour,string jacketImage)
+           string productSize, string productColour, byte[] jacketImage)
         {
             ProductId = productId;
             ProductName = productName;

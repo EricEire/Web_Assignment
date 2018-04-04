@@ -11,4 +11,6 @@ JacketImage VARBINARY(max))
 DECLARE @img AS VARBINARY(MAX)
 SET @img = (SELECT BulkColumn FROM OPENROWSET(BULK'C:\Code2\Web_Assignment\WebAssignment\Images\Jackets\Bomber_Black_1.jpg', SINGLE_BLOB)AS MyFile)
 INSERT INTO Jacket VALUES ('J101','Black Bomber','Black Bomber Jacket. Stylish, and light',50.00,4,'Large','Black',@img)
+
+
      

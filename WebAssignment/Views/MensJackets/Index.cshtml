@@ -47,17 +47,18 @@
                                 <div class="active item">
                                     <ul class="thumbnails">
                                         <!--Attempt to add an image from the database -->
+                                        </>
                                         @foreach (var jacket in Model)
                                         {
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <span class="sale_tag"></span>
-                                                <p><a href="product_detail.html"><img alt="@jacket.JacketImage" src="~/Images/Jackets/Leather_Black_Biker_1.jpg" /></a></p>
-                                                <a href="product_detail.html" class="title">@jacket.ProductName</a><br />
-                                                <a href="products.html" class="category">@jacket.ProductDescription</a>                                              
-                                                <p class="price">@jacket.ProductPricePerUnit</p>
-                                            </div>
-                                        </li>
+                                            <li class="span3">
+                                                <div class="product-box">
+                                                    <span class="sale_tag"></span>
+                                                    <p><a href="product_detail.html"><img alt="@jacket.JacketImage" src="data:image;base64,@System.Convert.ToBase64String(jacket.JacketImage)"@*"~/Images/Jackets/Leather_Black_Biker_1.jpg"*@ /></a></p>
+                                                    <a href="product_detail.html" class="title">@jacket.ProductName</a><br />
+                                                    <a href="products.html" class="category">@jacket.ProductDescription</a>
+                                                    <p class="price">@jacket.ProductPricePerUnit</p>
+                                                </div>
+                                            </li>
                                         }
                                         <li class="span3">
                                             <div class="product-box">
@@ -121,84 +122,84 @@
                                     </ul>
                                 </div>
                                 <div class="item">
-                                <!--second slide of carousel-->
-                                <ul class="thumbnails">
-                                    <li class="span3">
-                                        <div class="product-box">
-                                            <p><a href="product_detail.html"><img src="~/Images/Jackets/Denim_Jacket_Black_1.jpg" alt="Black Denim Jacket" /></a></p>
-                                            <a href="product_detail.html" class="title">Black Denim Jacket</a><br />
-                                            <a href="products.html" class="category">Black denim</a>
-                                            <p class="price">80.00</p>
-                                        </div>
-                                    </li>
-                                    <li class="span3">
-                                        <div class="product-box">
-                                            <p><a href="product_detail.html"><img src="~/Images/Jackets/Denim_Jacket_Blue_1.jpg" alt="Denim Jacket" /></a></p>
-                                            <a href="product_detail.html" class="title">Denim Jacket</a><br />
-                                            <a href="products.html" class="category">Denim</a>
-                                            <p class="price">80.00</p>
-                                        </div>
-                                    </li>
-                                    <li class="span3">
-                                        <div class="product-box">
-                                            <p><a href="product_detail.html"><img src="~/Images/Jackets/Denim_Jacket_Blue_2.jpg" alt="Denim Jacket" /></a></p>
-                                            <a href="product_detail.html" class="title">Denim Jacket</a><br />
-                                            <a href="products.html" class="category">Denim</a>
-                                            <p class="price">80.00</p>
-                                        </div>
-                                    </li>
-                                    <li class="span3">
-                                        <div class="product-box">
-                                            <p><a href="product_detail.html"><img src="~/Images/Jackets/Overcoat_Black_1.jpg" alt="Black Overcoat" /></a></p>
-                                            <a href="product_detail.html" class="title">Black Overcoat</a><br />
-                                            <a href="products.html" class="category">Overcoat</a>
-                                            <p class="price">120.00</p>
-                                        </div>
-                                    </li>
-                                    <li class="span3">
-                                        <div class="product-box">
-                                            <p><a href="product_detail.html"><img src="~/Images/Jackets/Overcoat_Brown_1.jpg" alt="Brown Overcoat" /></a></p>
-                                            <a href="product_detail.html" class="title">Brown Overcoat</a><br />
-                                            <a href="products.html" class="category">Overcoat</a>
-                                            <p class="price">120.00</p>
-                                        </div>
-                                    </li>
-                                    <li class="span3">
-                                        <div class="product-box">
-                                            <p><a href="product_detail.html"><img src="~/Images/Jackets/Overcoat_Grey_1.jpg" alt="Grey Overcoat" /></a></p>
-                                            <a href="product_detail.html" class="title">Grey Overcoat</a><br />
-                                            <a href="products.html" class="category">Overcoat</a>
-                                            <p class="price">120.00</p>
-                                        </div>
-                                    </li>
-                                    <li class="span3">
-                                        <div class="product-box">
-                                            <p><a href="product_detail.html"><img src="~/Images/Jackets/Parka_Jacket_Black_FauxFur.jpg" alt="Black Parka" /></a></p>
-                                            <a href="product_detail.html" class="title">Black Parka</a><br />
-                                            <a href="products.html" class="category">Faux Fur of course</a>
-                                            <p class="price">70.00</p>
-                                        </div>
-                                    </li>
-                                    <li class="span3">
-                                        <div class="product-box">
-                                            <p><a href="product_detail.html"><img src="~/Images/Jackets/Puffer_Jacket_1.jpg" alt="Puffer Jacket" /></a></p>
-                                            <a href="product_detail.html" class="title">Puffer Jacket</a><br />
-                                            <a href="products.html" class="category">Huff and Puff</a>
-                                            <p class="price">50.00</p>
-                                        </div>
-                                    </li>
-                                </ul>
+                                    <!--second slide of carousel-->
+                                    <ul class="thumbnails">
+                                        <li class="span3">
+                                            <div class="product-box">
+                                                <p><a href="product_detail.html"><img src="~/Images/Jackets/Denim_Jacket_Black_1.jpg" alt="Black Denim Jacket" /></a></p>
+                                                <a href="product_detail.html" class="title">Black Denim Jacket</a><br />
+                                                <a href="products.html" class="category">Black denim</a>
+                                                <p class="price">80.00</p>
+                                            </div>
+                                        </li>
+                                        <li class="span3">
+                                            <div class="product-box">
+                                                <p><a href="product_detail.html"><img src="~/Images/Jackets/Denim_Jacket_Blue_1.jpg" alt="Denim Jacket" /></a></p>
+                                                <a href="product_detail.html" class="title">Denim Jacket</a><br />
+                                                <a href="products.html" class="category">Denim</a>
+                                                <p class="price">80.00</p>
+                                            </div>
+                                        </li>
+                                        <li class="span3">
+                                            <div class="product-box">
+                                                <p><a href="product_detail.html"><img src="~/Images/Jackets/Denim_Jacket_Blue_2.jpg" alt="Denim Jacket" /></a></p>
+                                                <a href="product_detail.html" class="title">Denim Jacket</a><br />
+                                                <a href="products.html" class="category">Denim</a>
+                                                <p class="price">80.00</p>
+                                            </div>
+                                        </li>
+                                        <li class="span3">
+                                            <div class="product-box">
+                                                <p><a href="product_detail.html"><img src="~/Images/Jackets/Overcoat_Black_1.jpg" alt="Black Overcoat" /></a></p>
+                                                <a href="product_detail.html" class="title">Black Overcoat</a><br />
+                                                <a href="products.html" class="category">Overcoat</a>
+                                                <p class="price">120.00</p>
+                                            </div>
+                                        </li>
+                                        <li class="span3">
+                                            <div class="product-box">
+                                                <p><a href="product_detail.html"><img src="~/Images/Jackets/Overcoat_Brown_1.jpg" alt="Brown Overcoat" /></a></p>
+                                                <a href="product_detail.html" class="title">Brown Overcoat</a><br />
+                                                <a href="products.html" class="category">Overcoat</a>
+                                                <p class="price">120.00</p>
+                                            </div>
+                                        </li>
+                                        <li class="span3">
+                                            <div class="product-box">
+                                                <p><a href="product_detail.html"><img src="~/Images/Jackets/Overcoat_Grey_1.jpg" alt="Grey Overcoat" /></a></p>
+                                                <a href="product_detail.html" class="title">Grey Overcoat</a><br />
+                                                <a href="products.html" class="category">Overcoat</a>
+                                                <p class="price">120.00</p>
+                                            </div>
+                                        </li>
+                                        <li class="span3">
+                                            <div class="product-box">
+                                                <p><a href="product_detail.html"><img src="~/Images/Jackets/Parka_Jacket_Black_FauxFur.jpg" alt="Black Parka" /></a></p>
+                                                <a href="product_detail.html" class="title">Black Parka</a><br />
+                                                <a href="products.html" class="category">Faux Fur of course</a>
+                                                <p class="price">70.00</p>
+                                            </div>
+                                        </li>
+                                        <li class="span3">
+                                            <div class="product-box">
+                                                <p><a href="product_detail.html"><img src="~/Images/Jackets/Puffer_Jacket_1.jpg" alt="Puffer Jacket" /></a></p>
+                                                <a href="product_detail.html" class="title">Puffer Jacket</a><br />
+                                                <a href="products.html" class="category">Huff and Puff</a>
+                                                <p class="price">50.00</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                       
-                    </div><!--End carousel-->
+
+                        </div><!--End carousel-->
+                    </div>
                 </div>
             </div>
-    </div>
-    </div>
+        </div>
     </section>
 
-    </div> <!--End container-->
+</div> <!--End container-->
     <script src="~/shopper/themes/js/common.js"></script>
     <script src="~/shopper/themes/js/jquery.flexslider-min.js"></script>
     <script type="text/javascript">
