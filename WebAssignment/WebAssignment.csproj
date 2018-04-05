@@ -376,12 +376,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Apparel.cs" />
+    <Compile Include="Models\CustomerLogin.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\DAO.cs" />
     <Compile Include="Models\ItemType.cs" />
     <Compile Include="Models\Jackets.cs" />
     <Compile Include="Models\SaleItem.cs" />
-    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
