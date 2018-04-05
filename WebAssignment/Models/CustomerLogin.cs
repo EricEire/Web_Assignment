@@ -26,6 +26,6 @@ namespace WebAssignment.Models
         [Display(Name = "Confirm Password")]
         public string ConfirmPassword { get; set; }
 
-
+        //public string OrderID { get; set; }
     }
 }

@@ -28,6 +28,21 @@
         <h1>The not river island clothes shop</h1>
     </header>
     <div id="top-bar" class="container">
+        
+            
+            <div class="span8">
+                <div class="account pull-right">
+                    <ul class="user-menu">
+                        <li>@Html.ActionLink("Account", "Index", "Account")</li>
+                        <li>@Html.ActionLink("Cart", "Index", "Cart")</li>
+                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="register.html">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        
+    </div>
+    <div id="top-bar" class="container">
         <section class="navbar main-menu">
             <div class="navbar-inner main-menu">
                 <a href="index.html" class="logo pull-left"><img src="themes/images/logo.png" class="site_logo" alt=""></a>
@@ -41,13 +56,12 @@
                         <li>@Html.ActionLink("Jackets", "Index", "MensJackets")</li>
                         <li>@Html.ActionLink("Apparel", "Index", "MensApparel")</li>
                         <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
-                        <li>@Html.ActionLink("Account", "Index", "Account")</li>
-                        <li>@Html.ActionLink("Cart", "Index", "Cart")</li>
+                        
                     </ul>
                 </nav>
             </div>
         </section>
-        
+
     </div>
     <main>
         @RenderBody()
@@ -58,7 +72,7 @@
         <hr />
 
     </footer>
-    
+
 
 </body>
 </html>

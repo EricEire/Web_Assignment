@@ -30,7 +30,7 @@ ApparelImage VARBINARY(max))
 
 DECLARE @img AS VARBINARY(MAX)
 SET @img = (SELECT BulkColumn FROM OPENROWSET(BULK'C:\Code2\Web_Assignment\WebAssignment\Images\Apparel\Beanie_Black_1.jpg', SINGLE_BLOB)AS MyFile)
-INSERT INTO Apparel VALUES ('A101','"Black Beanie','Lovely Black Beanie',10.00,20,'Small','Grey',@img)
+INSERT INTO Apparel VALUES ('A101','Black Beanie','Lovely Black Beanie',10.00,20,'Small','Grey',@img)
 
 
 

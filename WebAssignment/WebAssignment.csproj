@@ -365,6 +365,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MensApparelController.cs" />
     <Compile Include="Controllers\MensJacketsController.cs" />
@@ -376,12 +377,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Apparel.cs" />
+    <Compile Include="Models\CustomerLogin.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\DAO.cs" />
     <Compile Include="Models\ItemType.cs" />
     <Compile Include="Models\Jackets.cs" />
     <Compile Include="Models\SaleItem.cs" />
-    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -412,6 +413,8 @@
   <ItemGroup>
     <Folder Include="shopper\themes\js\images\" />
     <Folder Include="shopper\themes\js\js\" />
+    <Folder Include="Views\Customer\" />
+    <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
