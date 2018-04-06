@@ -35,5 +35,18 @@ namespace WebAssignment.Controllers
         {
             return View();
         }
+
+        /*[HttpPost]
+        public ActionResult Login(CustomerLogin customer)
+        {
+            ModelState.Remove("FirstName");
+            ModelState.Remove("LastName");
+            ModelState.Remove("Email");
+            ModelState.Remove("ConfirmPassword");
+            if(ModelState.IsValid)
+            {
+
+            }
+        }*/
     }
 }

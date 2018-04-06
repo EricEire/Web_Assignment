@@ -130,6 +130,41 @@ namespace WebAssignment.Models
                 conn.Close();
             }
             return count;
+            }
+        public string CheckLogin(CustomerLogin user)
+        {
+            string password, username="";
+            SqlDataReader reader;
+            Connection();
+            SqlCommand cmd = new SqlCommand("uspCheckLogin", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Username", user.Username);
+            try
+            {
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                password = reader["Pass"].ToString();
+                if (Crypto.VerifyHashedPassword(password, user.Password))
+                {
+                    username = reader["Username"].ToString();
+                }
+                else
+                {
+                    message = "Incorrect password entered";
+                }
+            }catch(SqlException ex)
+            {
+                message = ex.Message;
+            }catch(FormatException ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return username;
+
         }
         #endregion
     }

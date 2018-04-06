@@ -57,3 +57,5 @@ AS
 INSERT INTO Customer VALUES(@Username, @Firstname, @Lastname, @Email, @Pass)
 
 INSERT INTO Customer VALUES('test','test','test','test','test')
+
+SELECT * FROM Customer WHERE Username='SeamasFogarty'
