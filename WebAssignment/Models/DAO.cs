@@ -204,7 +204,7 @@ namespace WebAssignment.Models
                     top.ProductPricePerUnit = decimal.Parse(reader["TopPricePerUnit"].ToString());
                     top.ProductQuantity = int.Parse(reader["TopQuantity"].ToString());
                     top.ProductSize = reader["TopSize"].ToString();
-                    top.ProductColour = reader["ToprColour"].ToString();
+                    top.ProductColour = reader["TopColour"].ToString();
                     top.TopImage = (byte[])reader["TopImage"];
                     topsList.Add(top);
                 }
@@ -221,8 +221,48 @@ namespace WebAssignment.Models
             return topsList;
         }
 
-            #region Customer
-            public int InsertCustomer(CustomerLogin customer)
+        public List<Shoes> showShoes()
+        {
+            List<Shoes> shoeList = new List<Shoes>();
+            Connection();
+            SqlDataReader reader;
+            //Creating an instance of SqlCommand 
+            SqlCommand cmd;
+            //Intialising SqlCommand
+            cmd = new SqlCommand("uspShowAllShoes", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Shoes shoe = new Shoes();
+                    shoe.ProductId = reader["ShoeID"].ToString();
+                    shoe.ProductName = reader["ShoeName"].ToString();
+                    shoe.ProductDescription = reader["ShoeDescription"].ToString();
+                    shoe.ProductPricePerUnit = decimal.Parse(reader["ShoePricePerUnit"].ToString());
+                    shoe.ProductQuantity = int.Parse(reader["ShoeQuantity"].ToString());
+                    shoe.ProductSize = reader["ShoeSize"].ToString();
+                    shoe.ProductColour = reader["ShoeColour"].ToString();
+                    shoe.ShoeImage = (byte[])reader["ShoeImage"];
+                    shoeList.Add(shoe);
+                }
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return shoeList;
+        }
+
+        #region Customer
+        public int InsertCustomer(CustomerLogin customer)
         {
             int count = 0;
             string password;

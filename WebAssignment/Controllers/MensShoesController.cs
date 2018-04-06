@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebAssignment.Models;
 
 namespace WebAssignment.Controllers
 {
@@ -11,7 +12,10 @@ namespace WebAssignment.Controllers
         // GET: MensShoes
         public ActionResult Index()
         {
-            return View();
+            DAO dao = new DAO();
+
+            List<Shoes> shoeList = dao.showShoes();
+            return View(shoeList);
         }
     }
 }

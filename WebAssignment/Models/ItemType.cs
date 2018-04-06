@@ -11,4 +11,6 @@ namespace WebAssignment.Models
     {
         Apparel, Jackets, Shirts, Shoes, Tops, Trousers
     }
+
+    
 }
