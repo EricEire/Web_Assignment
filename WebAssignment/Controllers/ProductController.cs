@@ -7,17 +7,17 @@ using WebAssignment.Models;
 
 namespace WebAssignment.Controllers
 {
-    public class MensShirtsController : Controller
+    public class ProductController : Controller
     {
-        // GET: MensShirts
+        // GET: Product
         public ActionResult Index()
         {
+
             DAO dao = new DAO();
 
-            List<Shirts> shirtList = dao.showShirts();
-
+            List<Product> ProductList = dao.showProducts();
             
-            return View(shirtList);
+            return View(ProductList);
         }
     }
 }
