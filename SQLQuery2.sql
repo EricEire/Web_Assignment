@@ -55,3 +55,5 @@ CREATE PROC uspInsertCustomer
 @Pass VARCHAR(50)
 AS
 INSERT INTO Customer VALUES(@Username, @Firstname, @Lastname, @Email, @Pass)
+
+INSERT INTO Customer VALUES('test','test','test','test','test')
