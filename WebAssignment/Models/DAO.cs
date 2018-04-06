@@ -99,6 +99,46 @@ namespace WebAssignment.Models
 
             return apparellist;
         }
+
+        public List<Shirts> showShirts()
+        {
+            List<Shirts> shirtList = new List<Shirts>();
+            Connection();
+            SqlDataReader reader;
+            //Creating an instance of SqlCommand 
+            SqlCommand cmd;
+            //Intialising SqlCommand
+            cmd = new SqlCommand("uspShowAllShirts", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Shirts shirt = new Shirts();
+                    shirt.ProductId = reader["ShirtID"].ToString();
+                    shirt.ProductName = reader["ShirtName"].ToString();
+                    shirt.ProductDescription = reader["ShirtDescription"].ToString();
+                    shirt.ProductPricePerUnit = decimal.Parse(reader["ShirtPricePerUnit"].ToString());
+                    shirt.ProductQuantity = int.Parse(reader["ShirtQuantity"].ToString());
+                    shirt.ProductSize = reader["ShirtSize"].ToString();
+                    shirt.ProductColour = reader["ShirtColour"].ToString();
+                    shirt.ShirtImage = (byte[])reader["ShirtImage"];
+                    shirtList.Add(shirt);
+                }
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return shirtList;
+        }
         #region Customer
         public int InsertCustomer(CustomerLogin customer)
         {
