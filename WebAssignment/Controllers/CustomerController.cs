@@ -11,9 +11,9 @@ namespace WebAssignment.Controllers
     {
         DAO dao = new DAO();
         // GET: Customer
-        public ActionResult Index()
+        public ActionResult Register()
         {
-            return View("Register");
+            return View("");
         }
 
         [HttpPost]

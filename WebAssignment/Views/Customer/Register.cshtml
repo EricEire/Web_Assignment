@@ -46,9 +46,10 @@
                 {
                 <fieldset>
                     <div class="control-group">
-                        <label class="control-label">Username</label>
+                        <label class="control-label">@Html.LabelFor(u => u.FirstName)</label>
                         <div class="controls">
                             <input type="text" placeholder="Enter your username" class="input-xlarge">
+                            @Html.TextBoxFor(u=>u.FirstName)
                             
                         </div>
                     </div>
