@@ -58,6 +58,8 @@ namespace WebAssignment.Models
             return jacketList;
         }
 
+      
+
         public List<Apparel> showApparel()
         {
             List<Apparel> apparellist = new List<Apparel>();
@@ -97,9 +99,36 @@ namespace WebAssignment.Models
 
             return apparellist;
         }
-
+        #region Customer
+        public int InsertCustomer(CustomerLogin customer)
+        {
+            int count = 0;
+            string password;
+            SqlCommand cmd = new SqlCommand("uspInsertCustomer", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Username", customer.FirstName);
+            cmd.Parameters.AddWithValue("@Firstname", customer.FirstName);
+            cmd.Parameters.AddWithValue("@Lastname", customer.LastName);
+            cmd.Parameters.AddWithValue("@Email", customer.Email);
+            cmd.Parameters.AddWithValue("@Pass", customer.Password);
+            try
+            {
+                conn.Open();
+                count = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return count;
+        }
+        #endregion
     }
 
-       
 
-    }
+
+}

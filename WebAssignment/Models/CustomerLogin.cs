@@ -8,6 +8,17 @@ namespace WebAssignment.Models
 {
     public class CustomerLogin
     {
+
+        [Required]
+        [RegularExpression("[A-Za-z]+")]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [RegularExpression("[A-Za-z]+")]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
         [Required]
         [RegularExpression("[A-Za-z]+")]
         [Display(Name = "User Name")]

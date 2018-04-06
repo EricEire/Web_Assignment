@@ -39,3 +39,14 @@ DECLARE @img AS VARBINARY(MAX)
 SET @img = (SELECT BulkColumn FROM OPENROWSET(BULK'', SINGLE_BLOB)AS MyFile)
 INSERT INTO Jacket VALUES ('','','', , ,' ',' ',@img)*/
 
+Create Table Customer(
+Username VARCHAR(50) not null PRIMARY KEY,
+Firstname VARCHAR(50),
+Lastname VARCHAR(50),
+Email VARCHAR(50),
+Pass VARCHAR(50)
+)
+
+CREATE PROC as uspInsertCustomer
+AS
+INSERT INTO Customer VALUES(@Username, @Firstname, @Lastname, @Email, @Pass)
