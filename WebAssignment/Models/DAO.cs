@@ -223,12 +223,13 @@ namespace WebAssignment.Models
 
             #region Customer
             public int InsertCustomer(CustomerLogin customer)
-        {
+            {
             int count = 0;
             string password;
+            Connection();
             SqlCommand cmd = new SqlCommand("uspInsertCustomer", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Username", customer.FirstName);
+            cmd.Parameters.AddWithValue("@Username", customer.Username);
             cmd.Parameters.AddWithValue("@Firstname", customer.FirstName);
             cmd.Parameters.AddWithValue("@Lastname", customer.LastName);
             cmd.Parameters.AddWithValue("@Email", customer.Email);

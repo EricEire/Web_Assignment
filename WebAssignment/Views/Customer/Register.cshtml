@@ -40,40 +40,44 @@
     <section class="main-content">
         <div class="row">
             <div class="span7">
+                @ViewData["message"]
                 <h4 class="title"><span class="text"><strong>Register</strong> Form</span></h4>
-                @*<form action="#" method="post" class="form-stacked">*@
                 @using (Html.BeginForm("Register", "Customer", FormMethod.Post))
                 {
+                    @Html.ValidationSummary()
                 <fieldset>
                     <div class="control-group">
-                        <label class="control-label">@Html.LabelFor(u => u.FirstName)</label>
+                        <label class="control-label">@Html.LabelFor(u => u.Username)</label>
                         <div class="controls">
-                            <input type="text" placeholder="Enter your username" class="input-xlarge">
-                            @Html.TextBoxFor(u=>u.FirstName)
+                            @Html.TextBoxFor(u => u.Username)
+                        </div>
+                    </div>
+                    @Html.LabelFor(u => u.FirstName)
+                    @Html.TextBoxFor(u => u.FirstName)
+
+                    @Html.LabelFor(u => u.LastName)
+                    @Html.TextBoxFor(u => u.LastName)
+
+                    @Html.LabelFor(u => u.Email)
+                    @Html.TextBoxFor(u => u.Email)
+
+                    @Html.LabelFor(u => u.Password)
+                    @Html.PasswordFor(u => u.Password)
+
+                    @Html.LabelFor(u => u.ConfirmPassword)
+                    @Html.PasswordFor(u => u.ConfirmPassword)
+                    <div class="control-group">
+                        
+                        <div class="controls">
                             
                         </div>
                     </div>
-                    <div class="control-group">
-                        <label class="control-label">Email address:</label>
-                        <div class="controls">
-                            <input type="password" placeholder="Enter your email" class="input-xlarge">
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">Password:</label>
-                        <div class="controls">
-                            <input type="password" placeholder="Enter your password" class="input-xlarge">
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <p>Now that we know who you are. I'm not a mistake! In a comic, you know how you can tell who the arch-villain's going to be?</p>
-                    </div>
                     <hr>
-                    <div class="actions"><input tabindex="9" class="btn btn-inverse large" type="submit" value="Create your account"></div>
+                    <div class="actions"><input tabindex="9" class="btn btn-inverse large" type="submit" value="Register"></div>
                 </fieldset>
-                @*</form>*@
+                    @*</form>*@
                 }
-                    </div>
-                </div>
-            </section>
+            </div>
         </div>
+    </section>
+</div>

@@ -24,9 +24,9 @@ namespace WebAssignment.Controllers
             {
                 count = dao.InsertCustomer(customer);
                 if (count == 1)
-                    ViewBag.Status = "Account created succesfully";
-                else ViewBag.Status = "Error!" + dao.message;
-                return View("Status");
+                    ViewData["message"] = "User record is created successfully";
+                else ViewData["message"] = "Error! " + dao.message;
+                return View("");
             }
             return View(customer);
         }
