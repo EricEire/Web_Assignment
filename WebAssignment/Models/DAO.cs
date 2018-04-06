@@ -223,8 +223,9 @@ namespace WebAssignment.Models
         }
 
         #region Customer
-            public int InsertCustomer(CustomerLogin customer)
-            {
+        
+       public int InsertCustomer(CustomerLogin customer)
+       {
             int count = 0;
             string password;
             Connection();
@@ -250,7 +251,8 @@ namespace WebAssignment.Models
                 conn.Close();
             }
             return count;
-        }
+       }
+    
         #endregion
     }
 

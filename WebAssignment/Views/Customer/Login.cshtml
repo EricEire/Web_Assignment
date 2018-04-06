@@ -1,6 +1,6 @@
 ﻿@model WebAssignment.Models.CustomerLogin
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Login";
 }
 
 <head>
@@ -31,39 +31,23 @@
 </head>
 <div id="top-bar" class="container">
     <section class="header_text sub">
-        <h4><span>Register</span></h4>
+        <h4><span>Login</span></h4>
     </section>
     <section class="main-content">
         <div class="row">
-            <div class="span7">
-                @ViewData["message"]
-                <h4 class="title"><span class="text"><strong>Register</strong> Form</span></h4>
-                @using (Html.BeginForm("Register", "Customer", FormMethod.Post))
+            <div class="span5">
+                <h4 class="title"><span class="text"><strong>Login</strong> Form</span></h4>
+                @using (Html.BeginForm("Login", "Customer", FormMethod.Post))
                  {
-                    @Html.ValidationSummary()
-                    <fieldset>
-                    @Html.LabelFor(u => u.Username)
-                    @Html.TextBoxFor(u => u.Username)
+                <input type="hidden" name="next" value="/">
+                <fieldset>
+                    @Html.LabelFor(u=>u.Username)
+                    @Html.TextBoxFor(u=>u.Username)
 
-                    @Html.LabelFor(u => u.FirstName)
-                    @Html.TextBoxFor(u => u.FirstName)
-
-                    @Html.LabelFor(u => u.LastName)
-                    @Html.TextBoxFor(u => u.LastName)
-
-                    @Html.LabelFor(u => u.Email)
-                    @Html.TextBoxFor(u => u.Email)
-
-                    @Html.LabelFor(u => u.Password)
-                    @Html.PasswordFor(u => u.Password)
-
-                    @Html.LabelFor(u => u.ConfirmPassword)
-                    @Html.PasswordFor(u => u.ConfirmPassword)
+                    @Html.LabelFor(u=>u.Password)
+                    @Html.PasswordFor(u=>u.Password)
                    
-                    <hr>
-                    <div class="actions"><input tabindex="9" class="btn btn-inverse large" type="submit" value="Register"></div>
                 </fieldset>
-                    
                  }
             </div>
         </div>
