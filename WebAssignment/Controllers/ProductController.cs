@@ -15,9 +15,9 @@ namespace WebAssignment.Controllers
 
             DAO dao = new DAO();
 
-            List<Product> ProductList = dao.showProducts();
+            List<Product> ProductList; /*= dao.showProducts();*/
             
-            return View(ProductList);
+            return View();
         }
     }
 }
