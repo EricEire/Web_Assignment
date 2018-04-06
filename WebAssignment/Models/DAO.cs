@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
+using System.Web.Helpers;
 
 namespace WebAssignment.Models
 {
@@ -221,7 +222,7 @@ namespace WebAssignment.Models
             return topsList;
         }
 
-            #region Customer
+        #region Customer
             public int InsertCustomer(CustomerLogin customer)
             {
             int count = 0;
@@ -233,7 +234,8 @@ namespace WebAssignment.Models
             cmd.Parameters.AddWithValue("@Firstname", customer.FirstName);
             cmd.Parameters.AddWithValue("@Lastname", customer.LastName);
             cmd.Parameters.AddWithValue("@Email", customer.Email);
-            cmd.Parameters.AddWithValue("@Pass", customer.Password);
+            password = Crypto.HashPassword(customer.ConfirmPassword);
+            cmd.Parameters.AddWithValue("@Pass", password);
             try
             {
                 conn.Open();

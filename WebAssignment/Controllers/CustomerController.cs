@@ -30,5 +30,10 @@ namespace WebAssignment.Controllers
             }
             return View(customer);
         }
+
+        //public ActionResult Login(CustomerLogin customer)
+        //{
+
+        //}
     }
 }
