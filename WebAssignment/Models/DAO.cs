@@ -179,8 +179,50 @@ namespace WebAssignment.Models
 
             return trousersList;
         }
-        #region Customer
-        public int InsertCustomer(CustomerLogin customer)
+
+
+        public List<Tops> showTops()
+        {
+            List<Tops> topsList = new List<Tops>();
+            Connection();
+            SqlDataReader reader;
+            //Creating an instance of SqlCommand 
+            SqlCommand cmd;
+            //Intialising SqlCommand
+            cmd = new SqlCommand("uspShowAllTops", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Tops top = new Tops();
+                    top.ProductId = reader["TopID"].ToString();
+                    top.ProductName = reader["TopName"].ToString();
+                    top.ProductDescription = reader["TopDescription"].ToString();
+                    top.ProductPricePerUnit = decimal.Parse(reader["TopPricePerUnit"].ToString());
+                    top.ProductQuantity = int.Parse(reader["TopQuantity"].ToString());
+                    top.ProductSize = reader["TopSize"].ToString();
+                    top.ProductColour = reader["ToprColour"].ToString();
+                    top.TopImage = (byte[])reader["TopImage"];
+                    topsList.Add(top);
+                }
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return topsList;
+        }
+
+            #region Customer
+            public int InsertCustomer(CustomerLogin customer)
         {
             int count = 0;
             string password;
