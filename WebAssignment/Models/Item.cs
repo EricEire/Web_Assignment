@@ -5,12 +5,7 @@ using System.Web;
 
 namespace WebAssignment.Models
 {
-
-    //Enum for the various items for sale
-    public enum ItemType
+    public class Item
     {
-        Apparel, Jackets, Shirts, Shoes, Tops, Trousers
     }
-
-    
 }

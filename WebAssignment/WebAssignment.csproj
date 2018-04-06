@@ -380,10 +380,12 @@
     <Compile Include="Models\CustomerLogin.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\DAO.cs" />
+    <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ItemType.cs" />
     <Compile Include="Models\Jackets.cs" />
     <Compile Include="Models\SaleItem.cs" />
     <Compile Include="Models\Shirts.cs" />
+    <Compile Include="Models\Shoes.cs" />
     <Compile Include="Models\Tops.cs" />
     <Compile Include="Models\Trousers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
