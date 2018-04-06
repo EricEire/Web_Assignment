@@ -14,7 +14,7 @@ namespace WebAssignment.Controllers
         {
             DAO dao = new DAO();
 
-            List<Jackets> jacketList = dao.showJackets();
+           // List<Jackets> jacketList = dao.showJackets();
             //jacketList.Add(new Jackets("wad", "wd", "d", 5, 5, "d", "d", "d"));
 
             return View(jacketList);
