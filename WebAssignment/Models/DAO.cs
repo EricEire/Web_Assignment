@@ -139,6 +139,46 @@ namespace WebAssignment.Models
 
             return shirtList;
         }
+
+        public List<Trousers> showTrousers()
+        {
+            List<Trousers> trousersList = new List<Trousers>();
+            Connection();
+            SqlDataReader reader;
+            //Creating an instance of SqlCommand 
+            SqlCommand cmd;
+            //Intialising SqlCommand
+            cmd = new SqlCommand("uspShowAllTrousers", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Trousers trousers = new Trousers();
+                    trousers.ProductId = reader["TrousersID"].ToString();
+                    trousers.ProductName = reader["TrousersName"].ToString();
+                    trousers.ProductDescription = reader["TrousersDescription"].ToString();
+                    trousers.ProductPricePerUnit = decimal.Parse(reader["TrousersPricePerUnit"].ToString());
+                    trousers.ProductQuantity = int.Parse(reader["TrousersQuantity"].ToString());
+                    trousers.ProductSize = reader["TrousersSize"].ToString();
+                    trousers.ProductColour = reader["TrouserColour"].ToString();
+                    trousers.TrouserImage = (byte[])reader["TrouserImage"];
+                    trousersList.Add(trousers);
+                }
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return trousersList;
+        }
         #region Customer
         public int InsertCustomer(CustomerLogin customer)
         {
