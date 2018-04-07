@@ -38,12 +38,7 @@
                     <div class="span12">
                         <h4 class="title">
                             <span class="pull-left"><span class="text"><span class="line">Mens Apparel</span></span></span>
-                            <span class="pull-right">
-                                <a class="left button" href="#myCarousel" data-slide="prev"></a><a class="right button" href="#myCarousel" data-slide="next"></a>
-                            </span>
-                        </h4>
-                        <div id="myCarousel" class="myCarousel carousel slide">
-                            <div class="carousel-inner">
+                          </h4>
                                 <div class="active item">
                                     <ul class="thumbnails">
                                         @*Foreach loop to iterate through list passed by controller to view and display the first 12 SaleItem Objects passed*@
@@ -61,27 +56,6 @@
                                         }
                                     </ul>
                                 </div>
-                                <div class="item">
-                                    <!--second slide of carousel-->
-                                    <ul class="thumbnails">
-                                        @*Foreach loop to only display the next 12 elements from the list and ignore the first 12*@
-                                        @foreach (var saleitem in Model.Skip(12).Take(12))
-                                        {
-                                            <li class="span3">
-                                                <div class="product-box">
-                                                    <span class="sale_tag"></span>
-                                                    <p><a href="product_detail.html"><img src="data:image;base64,@System.Convert.ToBase64String(saleitem.ProductImage)" /></a></p>
-                                                    <a href="product_detail.html" class="title">@saleitem.ProductName</a><br />
-                                                    <a href="products.html" class="category">@saleitem.ProductDescription</a>
-                                                    <p class="price">@saleitem.ProductPricePerUnit</p>
-                                                </div>
-                                            </li>
-                                        }
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div><!--End carousel-->
                     </div>
                 </div>
             </div>
