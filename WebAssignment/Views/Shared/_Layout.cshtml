@@ -35,7 +35,7 @@
                     <ul class="user-menu">
                         @if (Session["name"] != null)
                          {
-                        <span style="color:blue;">User:  @Session["name"] is currently logged in </span>
+                        <span style="color:blue;">@Session["name"] is currently logged in </span>
                          <li>@Html.ActionLink("Logout", "Logout", "Customer")</li>
                          }
                         else
