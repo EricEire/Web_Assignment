@@ -402,6 +402,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Customer\Register.cshtml" />
     <Content Include="Views\Customer\Login.cshtml" />
+    <Content Include="Views\Product\Apparel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -412,7 +413,6 @@
   <ItemGroup>
     <Folder Include="shopper\themes\js\images\" />
     <Folder Include="shopper\themes\js\js\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

@@ -9,15 +9,14 @@ namespace WebAssignment.Controllers
 {
     public class ProductController : Controller
     {
+        DAO dao = new DAO();
         // GET: Product
-        public ActionResult Index()
+        public ActionResult Apparel()
         {
-
-            DAO dao = new DAO();
-
-            List<Product> ProductList; /*= dao.showProducts();*/
-            
-            return View();
+            string apparelcode = "AP"; 
+            List<Product> Apparellist = dao.ShowAllProducts(apparelcode);
+            //List<Product> ProductList; /*= dao.showProducts();*/
+            return View(Apparellist);
         }
     }
 }

@@ -19,6 +19,67 @@ namespace WebAssignment.Models
         {
             conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["conString"].ConnectionString);
         }
+
+        public List<Product> ShowAllProducts(string clothescode)
+        {
+            List<Product> productList = new List<Product>();
+            Connection();
+            SqlDataReader reader;
+            SqlCommand cmd;
+            switch(clothescode)
+            {//Code to perform particular database query specific to each item type
+                case "AP":
+                    cmd = new SqlCommand("uspShowAllApparel", conn);
+                    break;
+                case "JA":
+                    cmd = new SqlCommand("uspShowAllJackets", conn);
+                    break;
+                case "SH":
+                    cmd = new SqlCommand("uspShowAllShirts", conn);
+                    break;
+                case "FW":
+                    cmd = new SqlCommand("uspShowAllShoes", conn);
+                    break;
+                case "TO":
+                    cmd = new SqlCommand("uspShowAllTops", conn);
+                    break;
+                case "TR":
+                    cmd = new SqlCommand("uspShowAllTrousers", conn);
+                    break;
+                default:
+                    cmd = new SqlCommand("uspShowAllProducts", conn);
+                    break;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                while(reader.Read())
+                {
+                    Product product = new Product();
+                    product.ProductId = reader["ProductID"].ToString();
+                    product.ProductType = reader["ProductType"].ToString();
+                    product.ProductName = reader["ProductName"].ToString();
+                    product.ProductDescription = reader["ProductDescription"].ToString();
+                    product.ProductPricePerUnit = decimal.Parse(reader["ProductPricePerUnit"].ToString());
+                    product.ProductQuantity = int.Parse(reader["ProductQuantity"].ToString());
+                    product.ProductSize = reader["ProductSize"].ToString();
+                    product.ProductColour = reader["ProductColour"].ToString();
+                    product.ProductImage = (byte[])reader["ProductImage"];
+                    productList.Add(product);
+                }
+            }catch(Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return productList;
+        }
+
         public List<Jackets> showJackets()
         {
             List<Jackets> jacketList = new List<Jackets>();
