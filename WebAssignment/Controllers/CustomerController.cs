@@ -24,8 +24,12 @@ namespace WebAssignment.Controllers
             {
                 count = dao.InsertCustomer(customer);
                 if (count == 1)
+                {
                     ViewData["message"] = "User record is created successfully";
+                    ModelState.Clear();
+                }
                 else ViewData["message"] = "Error! " + dao.message;
+                
                 return View("");
             }
             return View(customer);
@@ -51,13 +55,22 @@ namespace WebAssignment.Controllers
                 {
                     Session["name"] = customer.Username;
                     ViewData["message"] = "User logged in succesfully";
+                    ModelState.Clear();
+                }else if(string.IsNullOrEmpty(dao.message))
+                {
+                    ViewData["message"] = "User cannot be found";
                 }
                 else
                 {
-                    ViewData["message"] = "Error" + dao.message;
+                    ViewData["message"] = "Error " + dao.message;
                 }
             }
             return View();
+        }
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Login");
         }
     }
 }

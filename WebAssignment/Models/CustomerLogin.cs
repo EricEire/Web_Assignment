@@ -20,7 +20,7 @@ namespace WebAssignment.Models
         public string LastName { get; set; }
 
         [Required]
-        [RegularExpression("[A-Za-z]+")]
+        [RegularExpression("[A-Za-z0-9]+")]
         [Display(Name = "User Name")]
         public string Username { get; set; }
 

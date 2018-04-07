@@ -39,7 +39,8 @@
                 <h4 class="title"><span class="text"><strong>Login</strong> Form</span></h4>
                 @ViewData["message"]
                 @using (Html.BeginForm("Login", "Customer", FormMethod.Post))
-    {            <input type="hidden" name="next" value="/">
+                {
+                    <input type="hidden" name="next" value="/">
             <fieldset>
                 @Html.LabelFor(u => u.Username)
                 @Html.TextBoxFor(u => u.Username)
