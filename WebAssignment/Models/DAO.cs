@@ -162,9 +162,65 @@ namespace WebAssignment.Models
             return apparellist;
         }
 
-        
+
+        /*************************************************************PRODUCT****************************************************************/
+        public List<Product> showProduct()
+        {
+            List<Product> productList = new List<Product>();
+            Connection();
+            SqlDataReader reader;
+            //Creating an instance of SqlCommand 
+            SqlCommand cmd;
+            //Intialising SqlCommand
+            cmd = new SqlCommand("uspShowAllProduct", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Product product = new Product();
+                    product.ProductId = reader["ProductID"].ToString();
+                    product.ProductName = reader["ProductName"].ToString();
+                    product.ProductDescription = reader["ProductDescription"].ToString();
+                    product.ProductPricePerUnit = decimal.Parse(reader["ProductPricePerUnit"].ToString());
+                    product.ProductQuantity = int.Parse(reader["ProductQuantity"].ToString());
+                    product.ProductSize = reader["ProductSize"].ToString();
+                    product.ProductColour = reader["ProductColour"].ToString();
+                    product.ProductImage = (byte[])reader["ProductImage"];
+                    productList.Add(product);
+                }
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return productList;
+        }
+
+        /*************************************************************Transaction****************************************************************/
+        //public ActionResult CheckOut()
+        //{
+        //    int count = 0;
+        //    if (selectedItems.Count > 0)
+        //    {
+        //        foreach (ItemModel item in selectedItems)
+        //        {
+        //            totalPrice = totalPrice + item.TotalPrice;
+
+        //        }
+        //    }
+        //}
+
+
         #region Customer
-            public int InsertCustomer(CustomerLogin customer)
+        public int InsertCustomer(CustomerLogin customer)
             {
             int count = 0;
             string password;

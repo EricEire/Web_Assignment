@@ -1,7 +1,38 @@
-﻿
+﻿@model WebAssignment.Models.Contact
 @{
+    /*Contact Form*/
+
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Want to Contact Us?</h2>
+<h3>Fill otu the form and we will get bac to you.</h3>
+<div class="myForm">
+    @using (Html.BeginForm("Index", "Contact", FormMethod.Post))
+    {
+        <p>
+            @Html.ValidationSummary(false, "")
+        </p>
+        <p>
+            <span>@Html.LabelFor(c => c.Name)</span>
+            @Html.TextBoxFor(c => c.Name)<span>&nbsp;(Optional)</span>
+        </p>
+        <p>
+            <span>@Html.LabelFor(c => c.Subject)</span>
+            @Html.TextBoxFor(c => c.Subject)<span>&nbsp;(Optional)</span>
+        </p>
+        <p>
+            <span>@Html.LabelFor(c => c.Email)</span>
+            @Html.TextBoxFor(c => c.Email)
+        </p>
+        <p>
+            <span>@Html.LabelFor(c => c.Comments)</span>
+            @Html.TextAreaFor(c => c.Comments, new { @rows = 4, @cols = 50 })
+        </p>
+        <p>
+            <input type="submit" value="Submit" />
+        </p>
+    }
+</div>
+
 

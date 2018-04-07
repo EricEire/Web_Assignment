@@ -374,6 +374,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Apparel.cs" />
+    <Compile Include="Models\CartModel.cs" />
+    <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\CustomerLogin.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\DAO.cs" />
