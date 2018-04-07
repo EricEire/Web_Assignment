@@ -367,7 +367,6 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MensApparelController.cs" />
     <Compile Include="Controllers\MensJacketsController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
@@ -405,6 +404,11 @@
     <Content Include="Views\Customer\Register.cshtml" />
     <Content Include="Views\Customer\Login.cshtml" />
     <Content Include="Views\Product\Apparel.cshtml" />
+    <Content Include="Views\Product\Tops.cshtml" />
+    <Content Include="Views\Product\Shirts.cshtml" />
+    <Content Include="Views\Product\Shoes.cshtml" />
+    <Content Include="Views\Product\Trousers.cshtml" />
+    <Content Include="Views\Product\Jackets.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

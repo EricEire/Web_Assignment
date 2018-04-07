@@ -1,0 +1,111 @@
+﻿@model IEnumerable<WebAssignment.Models.Product>
+@{
+    ViewBag.Title = "Tops";
+}
+<head>
+    <meta charset="utf-8">
+    <title>Mens Apparel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mens Apparel. Ties, hats, belts ">
+
+    <!-- bootstrap -->
+    <link href="~/shopper/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/shopper/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="themes/css/bootstrappage.css" rel="stylesheet" />
+
+    <!-- global styles -->
+    <link href="~/shopper/themes/css/flexslider.css" rel="stylesheet" />
+    <link href="~/shopper/themes/css/main.css" rel="stylesheet" />
+
+    <!-- scripts -->
+    <
+    <script src="~/shopper/themes/js/jquery-1.7.2.min.js"></script>
+    <script src="~/shopper/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/shopper/themes/js/superfish.js"></script>
+    <script src="~/shopper/themes/js/jquery.scrolltotop.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<div id="top-bar" class="container">
+    <section class="main-content">
+        <div class="row">
+            <div class="span12">
+                <div class="row">
+                    <div class="span12">
+                        <h4 class="title">
+                            <span class="pull-left"><span class="text"><span class="line">Mens Apparel</span></span></span>
+                            <span class="pull-right">
+                                <a class="left button" href="#myCarousel" data-slide="prev"></a><a class="right button" href="#myCarousel" data-slide="next"></a>
+                            </span>
+                        </h4>
+                        <div id="myCarousel" class="myCarousel carousel slide">
+                            <div class="carousel-inner">
+                                <div class="active item">
+                                    <ul class="thumbnails">
+                                        @*Foreach loop to iterate through list passed by controller to view and display the first 12 SaleItem Objects passed*@
+                                        @foreach (var saleitem in Model.Take(12))
+                                        {
+                                            <li class="span3">
+                                                <div class="product-box">
+                                                    <span class="sale_tag"></span>
+                                                    <p><a href="product_detail.html"><img src="data:image;base64,@System.Convert.ToBase64String(saleitem.ProductImage)" /></a></p>
+                                                    <a href="product_detail.html" class="title">@saleitem.ProductName</a><br />
+                                                    <a href="products.html" class="category">@saleitem.ProductDescription</a>
+                                                    <p class="price">@saleitem.ProductPricePerUnit</p>
+                                                </div>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                                <div class="item">
+                                    <!--second slide of carousel-->
+                                    <ul class="thumbnails">
+                                        @*Foreach loop to only display the next 12 elements from the list and ignore the first 12*@
+                                        @foreach (var saleitem in Model.Skip(12).Take(12))
+                                        {
+                                            <li class="span3">
+                                                <div class="product-box">
+                                                    <span class="sale_tag"></span>
+                                                    <p><a href="product_detail.html"><img src="data:image;base64,@System.Convert.ToBase64String(saleitem.ProductImage)" /></a></p>
+                                                    <a href="product_detail.html" class="title">@saleitem.ProductName</a><br />
+                                                    <a href="products.html" class="category">@saleitem.ProductDescription</a>
+                                                    <p class="price">@saleitem.ProductPricePerUnit</p>
+                                                </div>
+                                            </li>
+                                        }
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><!--End carousel-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div> <!--End container-->
+<script src="~/shopper/themes/js/common.js"></script>
+<script src="~/shopper/themes/js/jquery.flexslider-min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(document).ready(function () {
+            $('.flexslider').flexslider({
+                animation: "fade",
+                slideshowSpeed: 4000,
+                animationSpeed: 600,
+                controlNav: false,
+                directionNav: true,
+                controlsContainer: ".flex-container" // the container that holds the flexslider
+            });
+        });
+    });
+</script>
+
+
+
+
