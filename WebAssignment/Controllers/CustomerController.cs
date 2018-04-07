@@ -36,7 +36,7 @@ namespace WebAssignment.Controllers
             return View();
         }
 
-        /*[HttpPost]
+        [HttpPost]
         public ActionResult Login(CustomerLogin customer)
         {
             ModelState.Remove("FirstName");
@@ -45,8 +45,19 @@ namespace WebAssignment.Controllers
             ModelState.Remove("ConfirmPassword");
             if(ModelState.IsValid)
             {
-
+                customer.Username = dao.CheckLogin(customer);
+                ViewData["Username"] = customer.Username;
+                if (customer.Username!=null)
+                {
+                    Session["name"] = customer.Username;
+                    ViewData["message"] = "User logged in succesfully";
+                }
+                else
+                {
+                    ViewData["message"] = "Error" + dao.message;
+                }
             }
-        }*/
+            return View();
+        }
     }
 }

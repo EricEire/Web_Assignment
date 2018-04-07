@@ -44,18 +44,27 @@ Username VARCHAR(50) not null PRIMARY KEY,
 Firstname VARCHAR(50),
 Lastname VARCHAR(50),
 Email VARCHAR(50),
-Pass VARCHAR(50)
+Pass VARCHAR(100)
 )
+
+DROP TABLE Customer
 
 CREATE PROC uspInsertCustomer
 @Username VARCHAR(50),
 @FirstName VARCHAR(50),
 @LastName VARCHAR(50),
 @Email VARCHAR(50),
-@Pass VARCHAR(50)
+@Pass VARCHAR(100)
 AS
 INSERT INTO Customer VALUES(@Username, @Firstname, @Lastname, @Email, @Pass)
 
-INSERT INTO Customer VALUES('test','test','test','test','test')
+CREATE PROC uspLoginCustomer
+@user varchar(50)
+AS
+SELECT Username, Pass
+FROM Customer 
+WHERE Username=@user
+GO
 
-SELECT * FROM Customer WHERE Username='SeamasFogarty'
+EXEC uspLoginCustomer @user=qqqqq
+

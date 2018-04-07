@@ -37,19 +37,19 @@
         <div class="row">
             <div class="span5">
                 <h4 class="title"><span class="text"><strong>Login</strong> Form</span></h4>
+                @ViewData["message"]
                 @using (Html.BeginForm("Login", "Customer", FormMethod.Post))
-                {
-                    <input type="hidden" name="next" value="/">
-                    <fieldset>
-                        @Html.LabelFor(u => u.Username)
-                        @Html.TextBoxFor(u => u.Username)
+    {            <input type="hidden" name="next" value="/">
+            <fieldset>
+                @Html.LabelFor(u => u.Username)
+                @Html.TextBoxFor(u => u.Username)
 
-                        @Html.LabelFor(u => u.Password)
-                        @Html.PasswordFor(u => u.Password)
+                @Html.LabelFor(u => u.Password)
+                @Html.PasswordFor(u => u.Password)
 
-                        <input tabindex="3" class="btn btn-inverse large" type="submit" value="Sign into your account">
-                    </fieldset>
-                }
+                <input tabindex="3" class="btn btn-inverse large" type="submit" value="Sign into your account">
+            </fieldset>
+}
             </div>
         </div>
     </section>

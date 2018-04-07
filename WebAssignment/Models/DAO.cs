@@ -114,7 +114,7 @@ namespace WebAssignment.Models
             cmd.Parameters.AddWithValue("@Firstname", customer.FirstName);
             cmd.Parameters.AddWithValue("@Lastname", customer.LastName);
             cmd.Parameters.AddWithValue("@Email", customer.Email);
-            password = Crypto.HashPassword(customer.ConfirmPassword);
+            password = Crypto.HashPassword(customer.Password);
             cmd.Parameters.AddWithValue("@Pass", password);
             try
             {
@@ -133,24 +133,27 @@ namespace WebAssignment.Models
             }
         public string CheckLogin(CustomerLogin user)
         {
-            string password, username="";
+            string password, username=null;
             SqlDataReader reader;
             Connection();
-            SqlCommand cmd = new SqlCommand("uspCheckLogin", conn);
+            SqlCommand cmd = new SqlCommand("uspLoginCustomer", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Username", user.Username);
+            cmd.Parameters.AddWithValue("@user", user.Username);
             try
             {
                 conn.Open();
                 reader = cmd.ExecuteReader();
-                password = reader["Pass"].ToString();
-                if (Crypto.VerifyHashedPassword(password, user.Password))
+                while (reader.Read())
                 {
-                    username = reader["Username"].ToString();
-                }
-                else
-                {
-                    message = "Incorrect password entered";
+                    password = reader["Pass"].ToString();
+                    if (Crypto.VerifyHashedPassword(password, user.Password))
+                    {
+                        username = reader["Username"].ToString();
+                    }
+                    else
+                    {
+                        message = "Incorrect password entered";
+                    }
                 }
             }catch(SqlException ex)
             {
