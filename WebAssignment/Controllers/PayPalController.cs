@@ -3,19 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebAssignment.Models;
 
 namespace WebAssignment.Controllers
 {
-    public class CartController : Controller
+    public class PayPalController : Controller
     {
-        DAO dao = new DAO();
-         
-
-        // GET: Cart
+        // GET: PayPal
         public ActionResult Index()
         {
-
             return View();
         }
     }
