@@ -47,6 +47,13 @@ Email VARCHAR(50),
 Pass VARCHAR(50)
 )
 
-CREATE PROC as uspInsertCustomer
+CREATE PROC uspInsertCustomer
+@Username VARCHAR(50),
+@FirstName VARCHAR(50),
+@LastName VARCHAR(50),
+@Email VARCHAR(50),
+@Pass VARCHAR(50)
 AS
 INSERT INTO Customer VALUES(@Username, @Firstname, @Lastname, @Email, @Pass)
+
+INSERT INTO Customer VALUES('test','test','test','test','test')

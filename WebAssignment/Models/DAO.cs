@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
+using System.Web.Helpers;
 
 namespace WebAssignment.Models
 {
@@ -139,18 +140,103 @@ namespace WebAssignment.Models
 
             return shirtList;
         }
-        #region Customer
-        public int InsertCustomer(CustomerLogin customer)
+
+        public List<Trousers> showTrousers()
         {
+            List<Trousers> trousersList = new List<Trousers>();
+            Connection();
+            SqlDataReader reader;
+            //Creating an instance of SqlCommand 
+            SqlCommand cmd;
+            //Intialising SqlCommand
+            cmd = new SqlCommand("uspShowAllTrousers", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Trousers trousers = new Trousers();
+                    trousers.ProductId = reader["TrousersID"].ToString();
+                    trousers.ProductName = reader["TrousersName"].ToString();
+                    trousers.ProductDescription = reader["TrousersDescription"].ToString();
+                    trousers.ProductPricePerUnit = decimal.Parse(reader["TrousersPricePerUnit"].ToString());
+                    trousers.ProductQuantity = int.Parse(reader["TrousersQuantity"].ToString());
+                    trousers.ProductSize = reader["TrousersSize"].ToString();
+                    trousers.ProductColour = reader["TrouserColour"].ToString();
+                    trousers.TrouserImage = (byte[])reader["TrouserImage"];
+                    trousersList.Add(trousers);
+                }
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return trousersList;
+        }
+
+
+        public List<Tops> showTops()
+        {
+            List<Tops> topsList = new List<Tops>();
+            Connection();
+            SqlDataReader reader;
+            //Creating an instance of SqlCommand 
+            SqlCommand cmd;
+            //Intialising SqlCommand
+            cmd = new SqlCommand("uspShowAllTops", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conn.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Tops top = new Tops();
+                    top.ProductId = reader["TopID"].ToString();
+                    top.ProductName = reader["TopName"].ToString();
+                    top.ProductDescription = reader["TopDescription"].ToString();
+                    top.ProductPricePerUnit = decimal.Parse(reader["TopPricePerUnit"].ToString());
+                    top.ProductQuantity = int.Parse(reader["TopQuantity"].ToString());
+                    top.ProductSize = reader["TopSize"].ToString();
+                    top.ProductColour = reader["ToprColour"].ToString();
+                    top.TopImage = (byte[])reader["TopImage"];
+                    topsList.Add(top);
+                }
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return topsList;
+        }
+
+        #region Customer
+        
+       public int InsertCustomer(CustomerLogin customer)
+       {
             int count = 0;
             string password;
+            Connection();
             SqlCommand cmd = new SqlCommand("uspInsertCustomer", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Username", customer.FirstName);
+            cmd.Parameters.AddWithValue("@Username", customer.Username);
             cmd.Parameters.AddWithValue("@Firstname", customer.FirstName);
             cmd.Parameters.AddWithValue("@Lastname", customer.LastName);
             cmd.Parameters.AddWithValue("@Email", customer.Email);
-            cmd.Parameters.AddWithValue("@Pass", customer.Password);
+            password = Crypto.HashPassword(customer.ConfirmPassword);
+            cmd.Parameters.AddWithValue("@Pass", password);
             try
             {
                 conn.Open();
@@ -165,7 +251,8 @@ namespace WebAssignment.Models
                 conn.Close();
             }
             return count;
-        }
+       }
+    
         #endregion
     }
 

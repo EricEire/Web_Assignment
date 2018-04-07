@@ -11,9 +11,9 @@ namespace WebAssignment.Controllers
     {
         DAO dao = new DAO();
         // GET: Customer
-        public ActionResult Index()
+        public ActionResult Register()
         {
-            return View("Register");
+            return View("");
         }
 
         [HttpPost]
@@ -24,11 +24,17 @@ namespace WebAssignment.Controllers
             {
                 count = dao.InsertCustomer(customer);
                 if (count == 1)
-                    ViewBag.Status = "Account created succesfully";
-                else ViewBag.Status = "Error!" + dao.message;
-                return View("Status");
+                    ViewData["message"] = "User record is created successfully";
+                else ViewData["message"] = "Error! " + dao.message;
+                return View("");
             }
             return View(customer);
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        
         }
     }
 }
