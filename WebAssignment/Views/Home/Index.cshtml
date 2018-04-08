@@ -1,9 +1,84 @@
-﻿
+﻿@model WebAssignment.Models.Product
 @{
     ViewBag.Title = "Home Page";
 }
+<head>
+    <meta charset="utf-8">
+    <title>Mens Apparel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mens Apparel. Ties, hats, belts ">
 
-<h2>Index</h2>
+    <!-- bootstrap -->
+    <link href="~/shopper/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/shopper/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="themes/css/bootstrappage.css" rel="stylesheet" />
 
-EGrehan Comment
+    <!-- global styles -->
+    <link href="~/shopper/themes/css/flexslider.css" rel="stylesheet" />
+    <link href="~/shopper/themes/css/main.css" rel="stylesheet" />
+
+    <!-- scripts -->
+    
+    <script src="~/shopper/themes/js/jquery-1.7.2.min.js"></script>
+    <script src="~/shopper/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/shopper/themes/js/superfish.js"></script>
+    <script src="~/shopper/themes/js/jquery.scrolltotop.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <div id="fb-root"></div>
+    <script>
+(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.12';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    <h2>Home</h2>
+    <div id="wrapper" class="container">
+        <section class="homepage-slider" id="home-slider">
+            <div class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <img src="~/Images/Banner/Banner1.jpg" alt="~/Images/Banner/Banner1.jpg" />
+                    </li>
+                    <li>
+                        <img src="~/Images/Banner/Banner2.jpg" alt="~/Images/Banner/Banner2.jpg" />
+                    </li>
+                </ul>
+            </div>
+            <section class="header_text">
+                Welcome to The Not River Island Store. This is the Web and Cloud Application Project of Seamas and the Erics.
+            </section>
+
+         
+        </section>
+
+
+
+    </div>
+    <script src="~/shopper/themes/js/common.js"></script>
+    <script src="~/shopper/themes/js/jquery.flexslider-min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(document).ready(function () {
+                $('.flexslider').flexslider({
+                    animation: "fade",
+                    slideshowSpeed: 7000,
+                    animationSpeed: 600,
+                    controlNav: false,
+                    directionNav: true,
+                    controlsContainer: ".flex-container" // the container that holds the flexslider
+                });
+            });
+        });
+    </script>
+</body>
+
 

@@ -102,6 +102,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Social.css" />
     <Content Include="Content\Styles.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\Apparel\Beanie_Black_1.jpg" />
@@ -130,6 +131,8 @@
     <Content Include="Images\Apparel\Tie_Green_Velvet.jpg" />
     <Content Include="Images\Apparel\Tie_Pink.jpg" />
     <Content Include="Images\Apparel\Tie_Silver.jpg" />
+    <Content Include="Images\Banner\Banner1.jpg" />
+    <Content Include="Images\Banner\Banner2.jpg" />
     <Content Include="Images\Jackets\Bomber_Black_1.jpg" />
     <Content Include="Images\Jackets\Cord_Tan_Jacket_1.jpg" />
     <Content Include="Images\Jackets\Denim_Jacket_Black_1.jpg" />
@@ -351,14 +354,9 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Views\MensShirts\Index.cshtml" />
-    <Content Include="Views\MensTrousers\Index.cshtml" />
-    <Content Include="Views\MensJackets\Index.cshtml" />
-    <Content Include="Views\MensApparel\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
-    <Content Include="Views\MensShoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -367,21 +365,16 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MensApparelController.cs" />
-    <Compile Include="Controllers\MensJacketsController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Apparel.cs" />
     <Compile Include="Models\CartModel.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\CustomerLogin.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\DAO.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\Jackets.cs" />
-    <Compile Include="Models\SaleItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -390,7 +383,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\MensTops\Index.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -405,6 +397,11 @@
     <Content Include="Views\Customer\Register.cshtml" />
     <Content Include="Views\Customer\Login.cshtml" />
     <Content Include="Views\Product\Apparel.cshtml" />
+    <Content Include="Views\Product\Tops.cshtml" />
+    <Content Include="Views\Product\Shirts.cshtml" />
+    <Content Include="Views\Product\Shoes.cshtml" />
+    <Content Include="Views\Product\Trousers.cshtml" />
+    <Content Include="Views\Product\Jackets.cshtml" />
     <Content Include="Views\Cart\ViewCart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

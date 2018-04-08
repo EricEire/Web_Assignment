@@ -122,6 +122,8 @@ namespace WebAssignment.Models
             return jacketList;
         }
 
+      
+
         public List<Apparel> showApparel()
         {
             List<Apparel> apparellist = new List<Apparel>();

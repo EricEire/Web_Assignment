@@ -18,11 +18,40 @@ namespace WebAssignment.Controllers
 
             string apparelcode = "AP"; 
             List<Product> Apparellist = dao.ShowAllProducts(apparelcode);
-            //List<Product> ProductList; /*= dao.showProducts();*/
             return View(Apparellist);
 
            
             
+        }
+        public ActionResult Tops()
+        {
+            string apparelcode = "TO";
+            List<Product> Toplist = dao.ShowAllProducts(apparelcode);
+            return View(Toplist);
+        }
+        public ActionResult Shirts()
+        {
+            string apparelcode = "SH";
+            List<Product> Shirtlist = dao.ShowAllProducts(apparelcode);
+            return View(Shirtlist);
+        }
+        public ActionResult Shoes()
+        {
+            string apparelcode = "FW";
+            List<Product> Shoelist = dao.ShowAllProducts(apparelcode);
+            return View(Shoelist);
+        }
+        public ActionResult Trousers()
+        {
+            string apparelcode = "TR";
+            List<Product> Trouserlist = dao.ShowAllProducts(apparelcode);
+            return View(Trouserlist);
+        }
+        public ActionResult Jackets()
+        {
+            string apparelcode = "JA";
+            List<Product> Jacketlist = dao.ShowAllProducts(apparelcode);
+            return View(Jacketlist);
         }
     }
 }
