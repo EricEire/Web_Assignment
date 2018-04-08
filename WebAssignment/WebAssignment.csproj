@@ -102,6 +102,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Social.css" />
     <Content Include="Content\Styles.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\Apparel\Beanie_Black_1.jpg" />
@@ -130,6 +131,8 @@
     <Content Include="Images\Apparel\Tie_Green_Velvet.jpg" />
     <Content Include="Images\Apparel\Tie_Pink.jpg" />
     <Content Include="Images\Apparel\Tie_Silver.jpg" />
+    <Content Include="Images\Banner\Banner1.jpg" />
+    <Content Include="Images\Banner\Banner2.jpg" />
     <Content Include="Images\Jackets\Bomber_Black_1.jpg" />
     <Content Include="Images\Jackets\Cord_Tan_Jacket_1.jpg" />
     <Content Include="Images\Jackets\Denim_Jacket_Black_1.jpg" />

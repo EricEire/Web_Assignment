@@ -22,50 +22,63 @@
     <script src="~/shopper/bootstrap/js/bootstrap.min.js"></script>
     <script src="~/shopper/themes/js/superfish.js"></script>
     <script src="~/shopper/themes/js/jquery.scrolltotop.js"></script>
+
+    <link href="~/Content/Social.css" rel="stylesheet" />
 </head>
 <body>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.12';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
     <header>
         <h1>The not river island clothes shop</h1>
     </header>
     <div id="top-bar" class="container">
-        
-            
-            <div class="span8">
-                <div class="account pull-right">
-                    <ul class="user-menu">
-                        @if (Session["name"] != null)
-                         {
-                        <span style="color:blue;">@Session["name"] is currently logged in </span>
-                         <li>@Html.ActionLink("Logout", "Logout", "Customer")</li>
-                         }
-                        else
-                        {
+
+
+        <div class="span8">
+            <div class="account pull-right">
+                <ul class="user-menu">
+                    @if (Session["name"] != null)
+                    {
+                        <span style="color:blue;">User:  @Session["name"] is currently logged in </span>
+                        <li>@Html.ActionLink("Logout", "Logout", "Customer")</li>
+                    }
+                    else
+                    {
                         <li> @Html.ActionLink("Register", "Register", "Customer") </li>
                         <li> @Html.ActionLink("Login", "Login", "Customer") </li>
-                        }
+                    }
 
-                        <li>@Html.ActionLink("Account", "Index", "Account")</li>
-                        <li>@Html.ActionLink("Cart", "Index", "Cart")</li>
-                        <li><a href="checkout.html">Checkout</a></li>
+                    <li>@Html.ActionLink("Account", "Index", "Account")</li>
+                    <li>@Html.ActionLink("Cart", "Index", "Cart")</li>
+                    <li><a href="checkout.html">Checkout</a></li>
 
-                    </ul>
-                </div>
+                </ul>
             </div>
-        
+
+        </div>
+
     </div>
     <div id="top-bar" class="container">
         <section class="navbar main-menu">
             <div class="navbar-inner main-menu">
-                <div class="logo pull-left"><img src="~/shopper/themes/images/logo.png" class="site_logo" alt=""></div>
+                <a href="index.html" class="logo pull-left"><img src="themes/images/logo.png" class="site_logo" alt=""></a>
                 <nav id="menu" class="pull-right">
                     <ul>
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("Apparel", "Apparel", "Product")</li>
-                        <li>@Html.ActionLink("Tops", "Tops", "Product")</li>
-                        <li>@Html.ActionLink("Shirts", "Shirts", "Product")</li>
-                        <li>@Html.ActionLink("Shoes", "Shoes", "Product")</li>
-                        <li>@Html.ActionLink("Trousers", "Trousers", "Product")</li>
-                        <li>@Html.ActionLink("Jackets", "Jackets", "Product")</li>
+                        <li>@Html.ActionLink("Tops", "Index", "MensTops")</li>
+                        <li>@Html.ActionLink("Shirts", "Index", "MensShirts")</li>
+                        <li>@Html.ActionLink("Shoes", "Index", "MensShoes")</li>
+                        <li>@Html.ActionLink("Trousers", "Index", "MensTrousers")</li>
+                        <li>@Html.ActionLink("Jackets", "Index", "MensJackets")</li>
+                        <li>@Html.ActionLink("Apparel", "Index", "MensApparel")</li>
                         <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
 
                     </ul>
@@ -73,17 +86,38 @@
             </div>
         </section>
 
+
+        <main>
+            @RenderBody()
+        </main>
+        <footer>
+            <section id="footer-bar" class="bar">
+                
+                <div class="social-share">
+                    &copy;@DateTime.Now.Year Fogarty, Grehan & Scott
+                    <div id="facebook" class="fb-like" data-href="https://www.facebook.com/WebAssignment-182636319044051/?hc_ref=ART5zxL1nmLEy7hIAMlAALhzlt-uOPCjxH-NoNIja7cyYUAyNd8xAJEzLY0WpPhBLbw&amp;fref=nf" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+
+                    <a href="https://twitter.com/WebAssignment18?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @@WebAssignment18</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <div class="g-plusone" data-size="medium"></div>
+
+
+                </div>
+
+                @*<div class="fb-like"
+             data-href="https://www.facebook.com/WebAssignment-182636319044051/?hc_ref=ART5zxL1nmLEy7hIAMlAALhzlt-uOPCjxH-NoNIja7cyYUAyNd8xAJEzLY0WpPhBLbw&amp;fref=nf"
+             data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        <a class="twitter-follow-button"
+           href="https://twitter.com/WebAssignment18?ref_src=twsrc%5Etfw" data-size="small">
+            Follow WebAssignment18
+        </a>*@
+
+
+            </section>
+        </footer>
+
     </div>
-    <main>
-        @RenderBody()
-    </main>
-
-    <footer>
-        <p>&copy;@DateTime.Now.Year Fogarty, Grehan & Scott</p>
-        <hr />
-
-    </footer>
-
+            
 
 </body>
 </html>
