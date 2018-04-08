@@ -10,10 +10,11 @@ namespace WebAssignment.Controllers
     public class CartController : Controller
     {
         DAO dao = new DAO();
-        static List<Product> selectedProducts = new List<Product>();
-
+        static List<Product> selectedProducts = new List<Product>(); //Item Being Purchased
+        static List<CartModel> selectedItems = new List<CartModel>(); //ITEM IN THE CART
+        
         decimal totalPrice = 0.0m;
-        decimal totalPriceItem = 0.0m;
+        decimal totalPriceProduct = 0.0m;
 
         /************************************************************************Get Cart**********************************************************************************/
         public ActionResult Index()
@@ -28,13 +29,13 @@ namespace WebAssignment.Controllers
             List<Product> product = dao.showProduct();
             bool found = false, found1 = false;
 
-            for (int i = 0; i < selectedProducts.Count && found == false; i++)
+            for (int i = 0; i < selectedItems.Count && found == false; i++)
             {
                 //if already in the selected items
-                if (selectedProducts[i].ProductId == form["productid"])
+                if (selectedItems[i].ItemId == form["productid"])
                 {
-                    selectedProducts[i].ProductQuantity = selectedProducts[i].ProductQuantity + int.Parse(form["quantity"]);
-                    selectedProducts[i].TotalPrice = selectedProducts[i].ProductPricePerUnit * selectedProducts[i].ProductQuantity;
+                    selectedItems[i].Quantity = selectedItems[i].Quantity + int.Parse(form["quantity"]);
+                    selectedItems[i].TotalPrice = selectedItems[i].TotalPrice * selectedItems[i].Quantity;
                     found = true;
                     found1 = true;
                 }
@@ -57,28 +58,29 @@ namespace WebAssignment.Controllers
         public ActionResult RemoveProduct(FormCollection form)
         {
             bool found = false;
-            Product product;
+            CartModel cartItem; //ITEM IN CART
 
-            for (int i = 0; i < selectedProducts.Count && found == false; i++)
+            for (int i = 0; i < selectedItems.Count && found == false; i++)
             {
-                if (selectedProducts[i].ProductId == form["productid"] || selectedProducts[i].ProductId == form["code"])
+
+                if (selectedItems[i].ItemId == form["id"] || selectedItems[i].ItemId == form["code"])
                 {
-                    product = selectedProducts[i];
-                    if (product.ProductQuantity > 1)
+                    cartItem = selectedItems[i];
+                    if (cartItem.Quantity > 1)
                     {
-                        product.ProductQuantity = product.ProductQuantity - 1;
-                        product.TotalPrice = product.TotalPrice - product.ProductPricePerUnit;
+                        cartItem.Quantity = cartItem.Quantity - 1;
+                        cartItem.TotalPrice = cartItem.TotalPrice - cartItem.Price;
                     }
                     else
                     {
-                        selectedProducts.Remove(product);
+                        selectedItems.Remove(cartItem);
                     }
                     found = true;
                 }
             }
-            foreach (var product1 in selectedProducts)
+            foreach (var item1 in selectedItems)
             {
-                totalPrice = totalPrice + product1.TotalPrice;
+                totalPrice = totalPrice + item1.TotalPrice;
             }
             ViewBag.TransactionPrice = totalPrice;
 
@@ -87,23 +89,63 @@ namespace WebAssignment.Controllers
         /******************************************************************Clear All Cart***************************************************************/
         public ActionResult ClearAll()
         {
-            //selectedBooks.Clear();
             selectedProducts.Clear();
+            selectedItems.Clear();
             return RedirectToAction("ViewCart");
         }
         /******************************************************************View All Cart***************************************************************/
         public ActionResult ViewCart()
         {
-            foreach (var item in selectedProducts)
+            foreach (Product product in selectedProducts)
+            {
+                CartModel cartItem = new CartModel();
+                totalPriceProduct = totalPriceProduct + product.ProductQuantity * product.ProductPricePerUnit;
+                cartItem.ItemId = product.ProductId;
+                cartItem.Title = product.ProductName;
+                cartItem.Quantity = product.ProductQuantity;
+                cartItem.Price = product.ProductPricePerUnit;
+                cartItem.TotalPrice = totalPriceProduct;
+                if (!selectedItems.Contains(cartItem))
+                    selectedItems.Add(cartItem);
+            }
+
+            foreach (var item in selectedItems)
             {
                 totalPrice = totalPrice + item.TotalPrice;
             }
             ViewBag.TransactionPrice = totalPrice;
             //To remove from the selected books to avoid adding them in selected items again and again
             selectedProducts.Clear();
-            return View(selectedProducts);
+            return View(selectedItems);
         }
         /******************************************************************CheckOut***************************************************************/
+        public ActionResult CheckOut()
+        {
+            int count = 0;
+            if (selectedItems.Count > 0)
+            {
+                foreach (CartModel item in selectedItems)
+                {
+                    totalPrice = totalPrice + item.TotalPrice;
 
+                }
+            }
+
+            count = dao.AddTransaction(Session.SessionID + count, DateTime.Now, totalPrice, Session["email"].ToString());
+
+            if (selectedItems.Count > 0)
+            {
+                foreach (CartModel item in selectedItems)
+                {
+
+                    dao.AddTransactionItem(Session.SessionID + count, item);
+                }
+            }
+            count++;
+            Session.Clear();
+            //Session.Abandon();
+
+            return View();
+        }
     }
 }

@@ -12,15 +12,17 @@ namespace WebAssignment.Models
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }
         public decimal ProductPricePerUnit { get; set; }
-        public decimal TotalPrice { get; set; } //addbe by Eg
-        public int ProductQuantity { get; set; }
+        public decimal TotalPrice { get; set; } //added by Eg
+        //public int ProductQuantity { get; set; }
         public string ProductSize { get; set; }
         public string ProductColour { get; set; }
         public byte[] ProductImage { get; set; }
 
+        public int ProductQuantity { get; set; }
+
         public Product() { }
 
-        public Product(string productId,string productType, string productName, string productDescription, decimal productPricePerUnit, decimal totalPrice, int productQuantity,
+        public Product(string productId,string productType, string productName, string productDescription, decimal productPricePerUnit, decimal totalPrice,/* int productQuantity,*/
            string productSize, string productColour, byte[] productImage)
         {
             ProductId = productId;
@@ -29,7 +31,7 @@ namespace WebAssignment.Models
             ProductDescription = productDescription;
             ProductPricePerUnit = productPricePerUnit;
             TotalPrice = totalPrice;
-            ProductQuantity = productQuantity;
+            //ProductQuantity = productQuantity;
             ProductSize = productSize;
             ProductColour = productColour;
             ProductImage = productImage;

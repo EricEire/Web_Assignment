@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Helpers;
+using System.Xml;
+using System.IO;
 
 namespace WebAssignment.Models
 {
@@ -120,8 +122,6 @@ namespace WebAssignment.Models
             return jacketList;
         }
 
-      
-
         public List<Apparel> showApparel()
         {
             List<Apparel> apparellist = new List<Apparel>();
@@ -205,18 +205,55 @@ namespace WebAssignment.Models
         }
 
         /*************************************************************Transaction****************************************************************/
-        //public ActionResult CheckOut()
-        //{
-        //    int count = 0;
-        //    if (selectedItems.Count > 0)
-        //    {
-        //        foreach (ItemModel item in selectedItems)
-        //        {
-        //            totalPrice = totalPrice + item.TotalPrice;
+        public int AddTransaction(string transactionId, DateTime date, decimal totalPrice, string email)
+        {
+            int count = 0;
+            SqlCommand cmd = new SqlCommand("InsertTransactionTable", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", transactionId);
+            cmd.Parameters.AddWithValue("@date", date);
+            cmd.Parameters.AddWithValue("@price", totalPrice);
+            cmd.Parameters.AddWithValue("@email", email);
+            try
+            {
+                conn.Open();
+                count = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return count;
 
-        //        }
-        //    }
-        //}
+        }
+        public int AddTransactionItem(string transactionId, CartModel cartItem)
+        {
+            int count = 0;
+            SqlCommand cmd = new SqlCommand("uspTransactionItem", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@tranId", transactionId);
+            cmd.Parameters.AddWithValue("@ItemId", cartItem.ItemId);
+            cmd.Parameters.AddWithValue("@quantity", cartItem.Quantity);
+
+            try
+            {
+                conn.Open();
+                count = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return count;
+        }
 
 
         #region Customer
