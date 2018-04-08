@@ -54,6 +54,13 @@
                                                     <a href="product_detail.html" class="title">@saleitem.ProductName</a><br />
                                                     <a href="products.html" class="category">@saleitem.ProductDescription</a>
                                                     <p class="price">@saleitem.ProductPricePerUnit</p>
+                                                    <span class="newline">
+                                                        Quantity: @Html.DropDownList("quantity", new SelectList((List<int>)ViewBag.Quantity))
+                                                    </span>
+                                                    <p>
+                                                        <input type="text" name="isbn" value="@saleitem.ProductId" class="hidden" />
+                                                        <input type="submit" value="Add to cart" /> <!--Use this Here to send the info to Add to cart-->
+                                                    </p>
                                                 </div>
                                             </li>
                                         }
@@ -72,6 +79,13 @@
                                                     <a href="product_detail.html" class="title">@saleitem.ProductName</a><br />
                                                     <a href="products.html" class="category">@saleitem.ProductDescription</a>
                                                     <p class="price">@saleitem.ProductPricePerUnit</p>
+                                                    <span class="newline">
+                                                        Quantity: @Html.DropDownList("quantity", new SelectList((List<int>)ViewBag.Quantity))
+                                                    </span>
+                                                    <p>
+                                                        <input type="text" name="isbn" value="@saleitem.ProductId" class="hidden" />
+                                                        <input type="submit" value="Add to cart" /> <!--Use this Here to send the info to Add to cart-->
+                                                    </p>
                                                 </div>
                                             </li>
                                         }

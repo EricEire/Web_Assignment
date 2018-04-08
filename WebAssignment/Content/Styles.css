@@ -4,3 +4,16 @@
 .loggedstatus {
     color: blue;
 }
+
+.hidden{
+    display:none;
+    height:1px;
+}
+
+.myForm{
+    margin-left:10px;
+}
+
+.contact{
+ margin-left:10px;
+}

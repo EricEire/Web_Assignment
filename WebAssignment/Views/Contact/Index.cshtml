@@ -4,9 +4,11 @@
 
     ViewBag.Title = "Index";
 }
-
-<h2>Want to Contact Us?</h2>
-<h3>Fill out the form and we will get back to you.</h3>
+<link href="~/Content/Styles.css" rel="stylesheet" />
+<div class="contact">
+    <h2 >Want to Contact Us?</h2>
+    <h3 >Fill out the form and we will get back to you.</h3>
+</div>
 <div class="myForm">
     @using (Html.BeginForm("Index", "Contact", FormMethod.Post))
     {
