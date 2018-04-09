@@ -40,7 +40,7 @@
                 <div class="row">
                     <div class="span12">
                         <h4 class="title">
-                            <span class="pull-left"><span class="text"><span class="line">Mens Apparel</span></span></span>
+                            <span class="pull-left"><span class="text"><span class="line">Mens Jackets</span></span></span>
                             <span class="pull-right">
                                 <a class="left button" href="#myCarousel" data-slide="prev"></a><a class="right button" href="#myCarousel" data-slide="next"></a>
                             </span>
@@ -52,6 +52,8 @@
                                         @*Foreach loop to iterate through list passed by controller to view and display the first 12 SaleItem Objects passed*@
                                         @foreach (var saleitem in Model.Take(12))
                                         {
+                                            using (Html.BeginForm("AddProduct", "Cart", FormMethod.Post))
+                                            {
                                             <li class="span3">
                                                 <div class="product-box">
                                                     <span class="sale_tag"></span>
@@ -63,11 +65,12 @@
                                                         Quantity: @Html.DropDownList("quantity", new SelectList((List<int>)ViewBag.Quantity))
                                                     </span>
                                                     <p>
-                                                        <input type="text" name="isbn" value="@saleitem.ProductId" class="hidden" />
+                                                        <input type="text" name="ProductId" value="@saleitem.ProductId" class="hideCode" />
                                                         <input type="submit" value="Add to cart" /> <!--Use this Here to send the info to Add to cart-->
                                                     </p>
                                                 </div>
                                             </li>
+                                            }
                                         }
                                     </ul>
                                 </div>
@@ -88,7 +91,7 @@
                                                         Quantity: @Html.DropDownList("quantity", new SelectList((List<int>)ViewBag.Quantity))
                                                     </span>
                                                     <p>
-                                                        <input type="text" name="isbn" value="@saleitem.ProductId" class="hidden" />
+                                                        <input type="text" name="isbn" value="@saleitem.ProductId" class="hideCode" />
                                                         <input type="submit" value="Add to cart" /> <!--Use this Here to send the info to Add to cart-->
                                                     </p>
                                                 </div>
@@ -109,6 +112,7 @@
 <script src="~/shopper/themes/js/common.js"></script>
 <script src="~/shopper/themes/js/jquery.flexslider-min.js"></script>
 <script type="text/javascript">
+      //The following JavaScript is from the Bootstrap template, modified to fit our purpose
     $(function () {
         $(document).ready(function () {
             $('.flexslider').flexslider({

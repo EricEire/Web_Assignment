@@ -5,9 +5,10 @@
     color: blue;
 }
 
-.hidden{
+.hideCode{
     display:none;
     height:1px;
+    visibility:hidden;
 }
 
 .myForm{

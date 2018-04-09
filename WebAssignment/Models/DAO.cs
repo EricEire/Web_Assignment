@@ -216,7 +216,7 @@ namespace WebAssignment.Models
             }
         public string CheckLogin(CustomerLogin user)
         {
-            string password, username=null;
+            string password, username = null;
             SqlDataReader reader;
             Connection();
             SqlCommand cmd = new SqlCommand("uspLoginCustomer", conn);
@@ -226,22 +226,32 @@ namespace WebAssignment.Models
             {
                 conn.Open();
                 reader = cmd.ExecuteReader();
+               
                 while (reader.Read())
                 {
                     password = reader["Pass"].ToString();
-                    if (Crypto.VerifyHashedPassword(password, user.Password))
+                    if (password == null)
                     {
-                        username = reader["Username"].ToString();
+                        message = $"{user.Username} not found";
                     }
                     else
                     {
-                        message = "Incorrect password entered";
+                        if (Crypto.VerifyHashedPassword(password, user.Password))
+                        {
+                            username = reader["Username"].ToString();
+                        }
+                        else
+                        {
+                            message = "Incorrect password entered";
+                        }
                     }
                 }
-            }catch(SqlException ex)
+            }
+            catch (SqlException ex)
             {
                 message = ex.Message;
-            }catch(FormatException ex)
+            }
+            catch (FormatException ex)
             {
                 message = ex.Message;
             }

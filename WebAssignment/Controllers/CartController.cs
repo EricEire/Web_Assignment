@@ -97,6 +97,7 @@ namespace WebAssignment.Controllers
         /******************************************************************View All Cart***************************************************************/
         public ActionResult ViewCart()
         {
+            
             foreach (Product product in selectedProducts)
             {
                 CartModel cartItem = new CartModel();
@@ -109,7 +110,7 @@ namespace WebAssignment.Controllers
                 if (!selectedItems.Contains(cartItem))
                     selectedItems.Add(cartItem);
             }
-
+            
             foreach (var item in selectedItems)
             {
                 totalPrice = totalPrice + item.TotalPrice;

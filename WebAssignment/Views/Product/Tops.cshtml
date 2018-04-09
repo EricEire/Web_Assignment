@@ -41,7 +41,7 @@
                 <div class="row">
                     <div class="span12">
                         <h4 class="title">
-                            <span class="pull-left"><span class="text"><span class="line">Mens Apparel</span></span></span>
+                            <span class="pull-left"><span class="text"><span class="line">Mens Tops</span></span></span>
                           </h4>
                                 <div class="active item">
                                     <ul class="thumbnails">
@@ -61,7 +61,7 @@
                                                         Quantity: @Html.DropDownList("quantity", new SelectList((List<int>)ViewBag.Quantity))
                                                     </span>
                                                     <p>
-                                                        <input type="text" name="isbn" value="@saleitem.ProductId" class="hidden" />
+                                                        <input type="text" name="ProductId" value="@saleitem.ProductId" class="hideCode" />
                                                         <input type="submit" value="Add to cart" /> <!--Use this Here to send the info to Add to cart-->
                                                     </p>
                                                 </div>
@@ -80,6 +80,7 @@
 <script src="~/shopper/themes/js/common.js"></script>
 <script src="~/shopper/themes/js/jquery.flexslider-min.js"></script>
 <script type="text/javascript">
+      //The following JavaScript is from the Bootstrap template, modified to fit our purpose
     $(function () {
         $(document).ready(function () {
             $('.flexslider').flexslider({

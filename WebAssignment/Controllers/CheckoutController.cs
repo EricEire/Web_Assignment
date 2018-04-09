@@ -16,10 +16,10 @@ namespace WebAssignment.Controllers
             return View();
         }
 
-        public ActionResult Success()
-        {
-            ViewBag.result = PDTHolder.Success(Request.QueryString.Get("tx"));
-            return View("Success");
-        }
+        //public ActionResult Success()
+        //{
+        //    ViewBag.result = PDTHolder.Success(Request.QueryString.Get("tx"));
+        //    return View("Success");
+        //}
     }
 }
