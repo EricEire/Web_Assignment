@@ -82,6 +82,11 @@ namespace WebAssignment.Models
             return productList;
         }
 
+      
+
+      
+
+        
 
 
         /*************************************************************PRODUCT****************************************************************/
@@ -126,15 +131,16 @@ namespace WebAssignment.Models
         }
 
         /*************************************************************Transaction****************************************************************/
-        public int AddTransaction(string transactionId, DateTime date, decimal totalPrice, string email)
+        public int AddTransaction(string transactionId, DateTime date, decimal totalPrice/*, string username*/)
         {
+            Connection();
             int count = 0;
             SqlCommand cmd = new SqlCommand("InsertTransactionTable", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@id", transactionId);
+            cmd.Parameters.AddWithValue("@transactionid", transactionId);
             cmd.Parameters.AddWithValue("@date", date);
             cmd.Parameters.AddWithValue("@price", totalPrice);
-            cmd.Parameters.AddWithValue("@email", email);
+            //cmd.Parameters.AddWithValue("@email", username);
             try
             {
                 conn.Open();
@@ -153,6 +159,8 @@ namespace WebAssignment.Models
         }
         public int AddTransactionItem(string transactionId, CartModel cartItem)
         {
+            Connection();
+            //connection
             int count = 0;
             SqlCommand cmd = new SqlCommand("uspTransactionItem", conn);
             cmd.CommandType = CommandType.StoredProcedure;

@@ -22,28 +22,29 @@ namespace WebAssignment.Controllers
             return View();
         }
 
-        /********************************************************************** Add Item to Cart**********************************************************************************/
+        /**********************************************************************Add Item to Cart**********************************************************************************/
         [HttpPost]
         public ActionResult AddProduct(FormCollection form)
         {
-            List<Product> product = dao.showProduct();
+            List<Product> product = dao.ShowAllProducts("ProductId");
             bool found = false, found1 = false;
 
             for (int i = 0; i < selectedItems.Count && found == false; i++)
             {
                 //if already in the selected items
-                if (selectedItems[i].ItemId == form["productid"])
+                if (selectedItems[i].ItemId == form["ProductId"])
                 {
                     selectedItems[i].Quantity = selectedItems[i].Quantity + int.Parse(form["quantity"]);
                     selectedItems[i].TotalPrice = selectedItems[i].TotalPrice * selectedItems[i].Quantity;
                     found = true;
                     found1 = true;
+                    //selectedItems[i] = cartItem;
                 }
             }
 
             for (int i = 0; i < product.Count && found1 == false; i++)
             {
-                if (product[i].ProductId == form["productid"])
+                if (product[i].ProductId == form["ProductId"])
                 {
                     product[i].ProductQuantity = int.Parse(form["quantity"]);
                     selectedProducts.Add(product[i]);
@@ -63,7 +64,7 @@ namespace WebAssignment.Controllers
             for (int i = 0; i < selectedItems.Count && found == false; i++)
             {
 
-                if (selectedItems[i].ItemId == form["id"] || selectedItems[i].ItemId == form["code"])
+                if (selectedItems[i].ItemId == form["ProductId"] || selectedItems[i].ItemId == form["code"])
                 {
                     cartItem = selectedItems[i];
                     if (cartItem.Quantity > 1)
@@ -127,24 +128,24 @@ namespace WebAssignment.Controllers
                 foreach (CartModel item in selectedItems)
                 {
                     totalPrice = totalPrice + item.TotalPrice;
-
                 }
             }
 
-            count = dao.AddTransaction(Session.SessionID + count, DateTime.Now, totalPrice, Session["email"].ToString());
+            count = dao.AddTransaction(Session.SessionID + count, DateTime.Now, totalPrice/* Session["username"].ToString()*/);
+            //count = dao.AddTransaction(/*Session.SessionID + */count.ToString(), DateTime.Now, totalPrice, Session["username"].ToString());
+            //Response.Write(count);
 
-            if (selectedItems.Count > 0)
+            if (selectedItems.Count >= 0)
             {
                 foreach (CartModel item in selectedItems)
                 {
-
                     dao.AddTransactionItem(Session.SessionID + count, item);
                 }
             }
-            count++;
-            Session.Clear();
+           
+            //Session.Clear();
             //Session.Abandon();
-
+            count++;
             return View();
         }
     }
