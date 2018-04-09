@@ -133,6 +133,7 @@
     <Content Include="Images\Apparel\Tie_Silver.jpg" />
     <Content Include="Images\Banner\Banner1.jpg" />
     <Content Include="Images\Banner\Banner2.jpg" />
+    <Content Include="Images\Banner\logoLP.png" />
     <Content Include="Images\Jackets\Bomber_Black_1.jpg" />
     <Content Include="Images\Jackets\Cord_Tan_Jacket_1.jpg" />
     <Content Include="Images\Jackets\Denim_Jacket_Black_1.jpg" />
